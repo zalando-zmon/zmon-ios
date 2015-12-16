@@ -1,0 +1,686 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D9A49871C202E5900026678 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49861C202E5900026678 /* AppDelegate.swift */; };
+		0D9A49891C202E5900026678 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49881C202E5900026678 /* RootVC.swift */; };
+		0D9A498C1C202E5900026678 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D9A498A1C202E5900026678 /* Main.storyboard */; };
+		0D9A498E1C202E5900026678 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D9A498D1C202E5900026678 /* Assets.xcassets */; };
+		0D9A49911C202E5900026678 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D9A498F1C202E5900026678 /* LaunchScreen.storyboard */; };
+		0D9A499C1C202E5900026678 /* zmonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A499B1C202E5900026678 /* zmonTests.swift */; };
+		0D9A49A71C202E5900026678 /* zmonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49A61C202E5900026678 /* zmonUITests.swift */; };
+		0D9A49C51C203EAD00026678 /* ZmonEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49C11C203EAD00026678 /* ZmonEntity.swift */; };
+		0D9A49C61C203EAD00026678 /* ZmonQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49C21C203EAD00026678 /* ZmonQueue.swift */; };
+		0D9A49C71C203EAD00026678 /* ZmonStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49C31C203EAD00026678 /* ZmonStatus.swift */; };
+		0D9A49C81C203EAD00026678 /* ZmonWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49C41C203EAD00026678 /* ZmonWorker.swift */; };
+		0D9A49CA1C2041EB00026678 /* ZmonStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49C91C2041EB00026678 /* ZmonStatusService.swift */; };
+		0D9A49CE1C20608A00026678 /* ZmonStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49CD1C20608A00026678 /* ZmonStatusVC.swift */; };
+		0D9A49D21C2067E800026678 /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49D11C2067E800026678 /* NavigationVC.swift */; };
+		0D9A49D41C214C3700026678 /* ZmonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49D31C214C3700026678 /* ZmonService.swift */; };
+		0D9A49DF1C21542700026678 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49DE1C21542700026678 /* String.swift */; };
+		0D9A49E21C21570C00026678 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D9A49E41C21570C00026678 /* Localizable.strings */; };
+		0D9A49E61C215E2300026678 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49E51C215E2300026678 /* SideMenuVC.swift */; };
+		0DFADF2F1C21727600C0B112 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DFADF2E1C21727600C0B112 /* GoogleService-Info.plist */; };
+		65E52DFA7BCFDC545B598DB1 /* Pods_zmon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F8B5D03C5F913FF6BF138B /* Pods_zmon.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0D9A49981C202E5900026678 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D9A497B1C202E5800026678 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D9A49821C202E5800026678;
+			remoteInfo = zmon;
+		};
+		0D9A49A31C202E5900026678 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D9A497B1C202E5800026678 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D9A49821C202E5800026678;
+			remoteInfo = zmon;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0D9A49831C202E5900026678 /* zmon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zmon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D9A49861C202E5900026678 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0D9A49881C202E5900026678 /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RootVC.swift; path = controllers/RootVC.swift; sourceTree = "<group>"; };
+		0D9A498B1C202E5900026678 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0D9A498D1C202E5900026678 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0D9A49901C202E5900026678 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0D9A49921C202E5900026678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D9A49971C202E5900026678 /* zmonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zmonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D9A499B1C202E5900026678 /* zmonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zmonTests.swift; sourceTree = "<group>"; };
+		0D9A499D1C202E5900026678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D9A49A21C202E5900026678 /* zmonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zmonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D9A49A61C202E5900026678 /* zmonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zmonUITests.swift; sourceTree = "<group>"; };
+		0D9A49A81C202E5900026678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D9A49C11C203EAD00026678 /* ZmonEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonEntity.swift; path = client/domain/ZmonEntity.swift; sourceTree = "<group>"; };
+		0D9A49C21C203EAD00026678 /* ZmonQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonQueue.swift; path = client/domain/ZmonQueue.swift; sourceTree = "<group>"; };
+		0D9A49C31C203EAD00026678 /* ZmonStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonStatus.swift; path = client/domain/ZmonStatus.swift; sourceTree = "<group>"; };
+		0D9A49C41C203EAD00026678 /* ZmonWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonWorker.swift; path = client/domain/ZmonWorker.swift; sourceTree = "<group>"; };
+		0D9A49C91C2041EB00026678 /* ZmonStatusService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonStatusService.swift; path = client/ZmonStatusService.swift; sourceTree = "<group>"; };
+		0D9A49CD1C20608A00026678 /* ZmonStatusVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonStatusVC.swift; path = controllers/ZmonStatusVC.swift; sourceTree = "<group>"; };
+		0D9A49D11C2067E800026678 /* NavigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationVC.swift; path = controllers/NavigationVC.swift; sourceTree = "<group>"; };
+		0D9A49D31C214C3700026678 /* ZmonService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonService.swift; path = client/ZmonService.swift; sourceTree = "<group>"; };
+		0D9A49DE1C21542700026678 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = extensions/String.swift; sourceTree = "<group>"; };
+		0D9A49E31C21570C00026678 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0D9A49E51C215E2300026678 /* SideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideMenuVC.swift; path = controllers/SideMenuVC.swift; sourceTree = "<group>"; };
+		0DFADF2E1C21727600C0B112 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0DFADF321C217B6C00C0B112 /* Bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-header.h"; sourceTree = "<group>"; };
+		59F8B5D03C5F913FF6BF138B /* Pods_zmon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_zmon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AEB6E52BB7F6D431B9E3A93 /* Pods-zmon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zmon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zmon/Pods-zmon.debug.xcconfig"; sourceTree = "<group>"; };
+		DBE641BB20ACBE641E541147 /* Pods-zmon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zmon.release.xcconfig"; path = "Pods/Target Support Files/Pods-zmon/Pods-zmon.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0D9A49801C202E5800026678 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65E52DFA7BCFDC545B598DB1 /* Pods_zmon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D9A49941C202E5900026678 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D9A499F1C202E5900026678 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D9A497A1C202E5800026678 = {
+			isa = PBXGroup;
+			children = (
+				0D9A49851C202E5900026678 /* zmon */,
+				0D9A499A1C202E5900026678 /* zmonTests */,
+				0D9A49A51C202E5900026678 /* zmonUITests */,
+				0D9A49841C202E5900026678 /* Products */,
+				C7BEA4C3EBD24EFF642BABAA /* Pods */,
+				8F129E7E79DCE97CE77B3F77 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0D9A49841C202E5900026678 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0D9A49831C202E5900026678 /* zmon.app */,
+				0D9A49971C202E5900026678 /* zmonTests.xctest */,
+				0D9A49A21C202E5900026678 /* zmonUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0D9A49851C202E5900026678 /* zmon */ = {
+			isa = PBXGroup;
+			children = (
+				0D9A49DD1C21540500026678 /* extensions */,
+				0D9A49B71C203B8D00026678 /* client */,
+				0D9A49B41C20358900026678 /* controllers */,
+				0D9A49861C202E5900026678 /* AppDelegate.swift */,
+				0D9A498A1C202E5900026678 /* Main.storyboard */,
+				0D9A498D1C202E5900026678 /* Assets.xcassets */,
+				0D9A498F1C202E5900026678 /* LaunchScreen.storyboard */,
+				0DFADF2E1C21727600C0B112 /* GoogleService-Info.plist */,
+				0D9A49921C202E5900026678 /* Info.plist */,
+				0D9A49E41C21570C00026678 /* Localizable.strings */,
+				0DFADF321C217B6C00C0B112 /* Bridging-header.h */,
+			);
+			path = zmon;
+			sourceTree = "<group>";
+		};
+		0D9A499A1C202E5900026678 /* zmonTests */ = {
+			isa = PBXGroup;
+			children = (
+				0D9A499B1C202E5900026678 /* zmonTests.swift */,
+				0D9A499D1C202E5900026678 /* Info.plist */,
+			);
+			path = zmonTests;
+			sourceTree = "<group>";
+		};
+		0D9A49A51C202E5900026678 /* zmonUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0D9A49A61C202E5900026678 /* zmonUITests.swift */,
+				0D9A49A81C202E5900026678 /* Info.plist */,
+			);
+			path = zmonUITests;
+			sourceTree = "<group>";
+		};
+		0D9A49B41C20358900026678 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0D9A49881C202E5900026678 /* RootVC.swift */,
+				0D9A49CD1C20608A00026678 /* ZmonStatusVC.swift */,
+				0D9A49D11C2067E800026678 /* NavigationVC.swift */,
+				0D9A49E51C215E2300026678 /* SideMenuVC.swift */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		0D9A49B71C203B8D00026678 /* client */ = {
+			isa = PBXGroup;
+			children = (
+				0D9A49B81C203B9200026678 /* domain */,
+				0D9A49C91C2041EB00026678 /* ZmonStatusService.swift */,
+				0D9A49D31C214C3700026678 /* ZmonService.swift */,
+			);
+			name = client;
+			sourceTree = "<group>";
+		};
+		0D9A49B81C203B9200026678 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				0D9A49C11C203EAD00026678 /* ZmonEntity.swift */,
+				0D9A49C21C203EAD00026678 /* ZmonQueue.swift */,
+				0D9A49C31C203EAD00026678 /* ZmonStatus.swift */,
+				0D9A49C41C203EAD00026678 /* ZmonWorker.swift */,
+			);
+			name = domain;
+			sourceTree = "<group>";
+		};
+		0D9A49DD1C21540500026678 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0D9A49DE1C21542700026678 /* String.swift */,
+			);
+			name = extensions;
+			sourceTree = "<group>";
+		};
+		8F129E7E79DCE97CE77B3F77 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59F8B5D03C5F913FF6BF138B /* Pods_zmon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7BEA4C3EBD24EFF642BABAA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5AEB6E52BB7F6D431B9E3A93 /* Pods-zmon.debug.xcconfig */,
+				DBE641BB20ACBE641E541147 /* Pods-zmon.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0D9A49821C202E5800026678 /* zmon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D9A49AB1C202E5900026678 /* Build configuration list for PBXNativeTarget "zmon" */;
+			buildPhases = (
+				DF82537C404F8C3C8D5FF5DF /* Check Pods Manifest.lock */,
+				0D9A497F1C202E5800026678 /* Sources */,
+				0D9A49801C202E5800026678 /* Frameworks */,
+				0D9A49811C202E5800026678 /* Resources */,
+				F8570987C9567963F300CDEF /* Embed Pods Frameworks */,
+				02FE593C9F90AE01BD611424 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = zmon;
+			productName = zmon;
+			productReference = 0D9A49831C202E5900026678 /* zmon.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0D9A49961C202E5900026678 /* zmonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D9A49AE1C202E5900026678 /* Build configuration list for PBXNativeTarget "zmonTests" */;
+			buildPhases = (
+				0D9A49931C202E5900026678 /* Sources */,
+				0D9A49941C202E5900026678 /* Frameworks */,
+				0D9A49951C202E5900026678 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D9A49991C202E5900026678 /* PBXTargetDependency */,
+			);
+			name = zmonTests;
+			productName = zmonTests;
+			productReference = 0D9A49971C202E5900026678 /* zmonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0D9A49A11C202E5900026678 /* zmonUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D9A49B11C202E5900026678 /* Build configuration list for PBXNativeTarget "zmonUITests" */;
+			buildPhases = (
+				0D9A499E1C202E5900026678 /* Sources */,
+				0D9A499F1C202E5900026678 /* Frameworks */,
+				0D9A49A01C202E5900026678 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D9A49A41C202E5900026678 /* PBXTargetDependency */,
+			);
+			name = zmonUITests;
+			productName = zmonUITests;
+			productReference = 0D9A49A21C202E5900026678 /* zmonUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0D9A497B1C202E5800026678 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Zalando Tech";
+				TargetAttributes = {
+					0D9A49821C202E5800026678 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = KH53W9VNG5;
+					};
+					0D9A49961C202E5900026678 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 0D9A49821C202E5800026678;
+					};
+					0D9A49A11C202E5900026678 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 0D9A49821C202E5800026678;
+					};
+				};
+			};
+			buildConfigurationList = 0D9A497E1C202E5800026678 /* Build configuration list for PBXProject "zmon" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0D9A497A1C202E5800026678;
+			productRefGroup = 0D9A49841C202E5900026678 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0D9A49821C202E5800026678 /* zmon */,
+				0D9A49961C202E5900026678 /* zmonTests */,
+				0D9A49A11C202E5900026678 /* zmonUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0D9A49811C202E5800026678 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D9A49911C202E5900026678 /* LaunchScreen.storyboard in Resources */,
+				0D9A49E21C21570C00026678 /* Localizable.strings in Resources */,
+				0DFADF2F1C21727600C0B112 /* GoogleService-Info.plist in Resources */,
+				0D9A498E1C202E5900026678 /* Assets.xcassets in Resources */,
+				0D9A498C1C202E5900026678 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D9A49951C202E5900026678 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D9A49A01C202E5900026678 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02FE593C9F90AE01BD611424 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-zmon/Pods-zmon-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF82537C404F8C3C8D5FF5DF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F8570987C9567963F300CDEF /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-zmon/Pods-zmon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0D9A497F1C202E5800026678 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D9A49C51C203EAD00026678 /* ZmonEntity.swift in Sources */,
+				0D9A49DF1C21542700026678 /* String.swift in Sources */,
+				0D9A49E61C215E2300026678 /* SideMenuVC.swift in Sources */,
+				0D9A49C81C203EAD00026678 /* ZmonWorker.swift in Sources */,
+				0D9A49C71C203EAD00026678 /* ZmonStatus.swift in Sources */,
+				0D9A49D21C2067E800026678 /* NavigationVC.swift in Sources */,
+				0D9A49CE1C20608A00026678 /* ZmonStatusVC.swift in Sources */,
+				0D9A49D41C214C3700026678 /* ZmonService.swift in Sources */,
+				0D9A49CA1C2041EB00026678 /* ZmonStatusService.swift in Sources */,
+				0D9A49C61C203EAD00026678 /* ZmonQueue.swift in Sources */,
+				0D9A49891C202E5900026678 /* RootVC.swift in Sources */,
+				0D9A49871C202E5900026678 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D9A49931C202E5900026678 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D9A499C1C202E5900026678 /* zmonTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D9A499E1C202E5900026678 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D9A49A71C202E5900026678 /* zmonUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0D9A49991C202E5900026678 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D9A49821C202E5800026678 /* zmon */;
+			targetProxy = 0D9A49981C202E5900026678 /* PBXContainerItemProxy */;
+		};
+		0D9A49A41C202E5900026678 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D9A49821C202E5800026678 /* zmon */;
+			targetProxy = 0D9A49A31C202E5900026678 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0D9A498A1C202E5900026678 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D9A498B1C202E5900026678 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0D9A498F1C202E5900026678 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D9A49901C202E5900026678 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0D9A49E41C21570C00026678 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D9A49E31C21570C00026678 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0D9A49A91C202E5900026678 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "zmon/Bridging-header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0D9A49AA1C202E5900026678 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "zmon/Bridging-header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0D9A49AC1C202E5900026678 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AEB6E52BB7F6D431B9E3A93 /* Pods-zmon.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = zmon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "zmon-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "45049b43-6c8f-4796-af12-089572554b7a";
+			};
+			name = Debug;
+		};
+		0D9A49AD1C202E5900026678 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBE641BB20ACBE641E541147 /* Pods-zmon.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = zmon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "zmon-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "45049b43-6c8f-4796-af12-089572554b7a";
+			};
+			name = Release;
+		};
+		0D9A49AF1C202E5900026678 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = zmonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.zalando.zmonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/zmon.app/zmon";
+			};
+			name = Debug;
+		};
+		0D9A49B01C202E5900026678 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = zmonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.zalando.zmonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/zmon.app/zmon";
+			};
+			name = Release;
+		};
+		0D9A49B21C202E5900026678 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = zmonUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.zalando.zmonUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = zmon;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		0D9A49B31C202E5900026678 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = zmonUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = de.zalando.zmonUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = zmon;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0D9A497E1C202E5800026678 /* Build configuration list for PBXProject "zmon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D9A49A91C202E5900026678 /* Debug */,
+				0D9A49AA1C202E5900026678 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D9A49AB1C202E5900026678 /* Build configuration list for PBXNativeTarget "zmon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D9A49AC1C202E5900026678 /* Debug */,
+				0D9A49AD1C202E5900026678 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D9A49AE1C202E5900026678 /* Build configuration list for PBXNativeTarget "zmonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D9A49AF1C202E5900026678 /* Debug */,
+				0D9A49B01C202E5900026678 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D9A49B11C202E5900026678 /* Build configuration list for PBXNativeTarget "zmonUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D9A49B21C202E5900026678 /* Debug */,
+				0D9A49B31C202E5900026678 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0D9A497B1C202E5800026678 /* Project object */;
+}

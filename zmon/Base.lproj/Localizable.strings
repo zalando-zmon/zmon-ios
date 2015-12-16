@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  zmon
+
+  Created by Andrej Kincel on 16/12/15.
+  Copyright © 2015 Zalando Tech. All rights reserved.
+*/
+
+"ZmonStatus" = "ZMON Status";
+"InQueue" = "in queue";
+"ActiveWorkers" = "active workers";
