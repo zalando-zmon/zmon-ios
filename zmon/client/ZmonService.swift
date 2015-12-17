@@ -15,12 +15,32 @@ class ZmonService: NSObject {
     let zmonEndpoint = "https://zmon2.zalando.net"
     static let sharedInstance: ZmonService = ZmonService()
     
-    func get<T: EVObject>(path path: String, parameters: [String:String], success: (T)->()) {
+    func getObject<T: EVObject>(path path: String, parameters: [String:String], success: (T)->()) {
         Alamofire
             .request(.GET, "\(zmonEndpoint)\(path)", parameters: parameters)
             .responseObject { (response: Result<T, NSError>) in
-                if let status = response.value {
-                    success(status)
+                if let object = response.value {
+                    success(object)
+                }
+        }
+    }
+    
+    func getObjectList<T: EVObject>(path path: String, parameters: [String:String], success: ([T])->()) {
+        Alamofire
+            .request(.GET, "\(zmonEndpoint)\(path)", parameters: parameters)
+            .responseArray { (response: Result<[T], NSError>) in
+                if let array = response.value {
+                    success(array)
+                }
+        }
+    }
+    
+    func getStringList(path path: String, parameters: [String:String], success: ([String])->()) {
+        Alamofire
+            .request(.GET, "\(zmonEndpoint)\(path)", parameters: parameters)
+            .responseJSON { (response: Response<AnyObject, NSError>) -> Void in
+                if let stringList = response.result.value as? [String] {
+                    success(stringList)
                 }
         }
     }

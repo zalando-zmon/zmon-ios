@@ -32,6 +32,7 @@ class RootVC: UIViewController {
         
         if let navigationVC = self.storyboard!.instantiateViewControllerWithIdentifier("NavigationVC") as? NavigationVC {
             self.navigationVC = navigationVC
+            navigationVC.rootVC = self
             self.view.addSubview(navigationVC.view)
             self.addChildViewController(navigationVC)
             navigationVC.didMoveToParentViewController(self)
@@ -39,6 +40,7 @@ class RootVC: UIViewController {
         
         if let sideMenuVC = self.storyboard!.instantiateViewControllerWithIdentifier("SideMenuVC") as? SideMenuVC {
             self.sideMenuVC = sideMenuVC
+            sideMenuVC.rootVC = self
             sideMenuVC.view.frame = CGRectMake(-self.view.frame.width-self.sideMenuGap, 0, self.view.frame.width-self.sideMenuGap, self.view.frame.height)
             self.view.addSubview(sideMenuVC.view)
             self.addChildViewController(sideMenuVC)

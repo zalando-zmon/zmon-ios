@@ -13,8 +13,12 @@ class SideMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Properties
     @IBOutlet weak var table: UITableView!
     
+    weak var rootVC: RootVC?
+    
     let menuItems : [[String:String]] = [
-        ["name": "ZmonStatus".localized]
+        ["name": "ZmonStatus".localized, "action": "showZmonStatus"],
+        ["name": "ZmonDashboard".localized, "action": "showZmonDashboard"],
+        ["name": "ObservedTeams".localized, "action": "showObservedTeams"]
     ]
     
     // MARK: - Lifecycle
@@ -36,9 +40,6 @@ class SideMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return self.menuItems.count
     }
     
-    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let menuRecord: [String:String] = menuItems[indexPath.row]
         
@@ -46,5 +47,20 @@ class SideMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         cell.textLabel!.text = menuRecord["name"]!
         return cell
     }
+    
+    // MARK: - UITableViewDelegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let menuRecord: [String:String] = menuItems[indexPath.row]
+
+        if let action = menuRecord["action"] {
+            if let rootVC = self.rootVC {
+                
+                let control: UIControl = UIControl()
+                control.sendAction(Selector(action), to: rootVC.navigationVC, forEvent: nil)
+                rootVC.hideSideMenu()
+            }
+        }
+    }
+
     
 }

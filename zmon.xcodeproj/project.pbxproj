@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D22DFDB1C21C247007759B5 /* ZmonDashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22DFDA1C21C247007759B5 /* ZmonDashboardVC.swift */; };
+		0D22DFDE1C229E79007759B5 /* ZmonApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22DFDD1C229E79007759B5 /* ZmonApplication.swift */; };
+		0D22DFE11C229EF0007759B5 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22DFE01C229EF0007759B5 /* Team.swift */; };
 		0D9A49871C202E5900026678 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49861C202E5900026678 /* AppDelegate.swift */; };
 		0D9A49891C202E5900026678 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49881C202E5900026678 /* RootVC.swift */; };
 		0D9A498C1C202E5900026678 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D9A498A1C202E5900026678 /* Main.storyboard */; };
@@ -26,6 +29,13 @@
 		0D9A49E21C21570C00026678 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D9A49E41C21570C00026678 /* Localizable.strings */; };
 		0D9A49E61C215E2300026678 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49E51C215E2300026678 /* SideMenuVC.swift */; };
 		0DFADF2F1C21727600C0B112 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DFADF2E1C21727600C0B112 /* GoogleService-Info.plist */; };
+		0DFADF341C21835000C0B112 /* ZmonTeamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADF331C21835000C0B112 /* ZmonTeamService.swift */; };
+		0DFADF381C218CA700C0B112 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADF371C218CA700C0B112 /* BaseVC.swift */; };
+		0DFADF3A1C21AAC800C0B112 /* ObservedTeamsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADF391C21AAC800C0B112 /* ObservedTeamsVC.swift */; };
+		0DFADF3D1C21AD2700C0B112 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADF3C1C21AD2700C0B112 /* TeamCell.swift */; };
+		0DFADF3F1C21B7C700C0B112 /* ZmonAlertDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADF3E1C21B7C700C0B112 /* ZmonAlertDefinition.swift */; };
+		0DFADF411C21B9F300C0B112 /* ZmonAlertStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADF401C21B9F300C0B112 /* ZmonAlertStatus.swift */; };
+		0DFADF431C21BA5D00C0B112 /* ZmonAlertsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADF421C21BA5D00C0B112 /* ZmonAlertsService.swift */; };
 		65E52DFA7BCFDC545B598DB1 /* Pods_zmon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F8B5D03C5F913FF6BF138B /* Pods_zmon.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D22DFDA1C21C247007759B5 /* ZmonDashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonDashboardVC.swift; path = controllers/ZmonDashboardVC.swift; sourceTree = "<group>"; };
+		0D22DFDD1C229E79007759B5 /* ZmonApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonApplication.swift; path = application/ZmonApplication.swift; sourceTree = "<group>"; };
+		0D22DFE01C229EF0007759B5 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Team.swift; path = persistence/Team.swift; sourceTree = "<group>"; };
 		0D9A49831C202E5900026678 /* zmon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zmon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D9A49861C202E5900026678 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D9A49881C202E5900026678 /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RootVC.swift; path = controllers/RootVC.swift; sourceTree = "<group>"; };
@@ -73,6 +86,13 @@
 		0D9A49E51C215E2300026678 /* SideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideMenuVC.swift; path = controllers/SideMenuVC.swift; sourceTree = "<group>"; };
 		0DFADF2E1C21727600C0B112 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0DFADF321C217B6C00C0B112 /* Bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-header.h"; sourceTree = "<group>"; };
+		0DFADF331C21835000C0B112 /* ZmonTeamService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonTeamService.swift; path = client/ZmonTeamService.swift; sourceTree = "<group>"; };
+		0DFADF371C218CA700C0B112 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseVC.swift; path = controllers/BaseVC.swift; sourceTree = "<group>"; };
+		0DFADF391C21AAC800C0B112 /* ObservedTeamsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObservedTeamsVC.swift; path = controllers/ObservedTeamsVC.swift; sourceTree = "<group>"; };
+		0DFADF3C1C21AD2700C0B112 /* TeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamCell.swift; path = cells/TeamCell.swift; sourceTree = "<group>"; };
+		0DFADF3E1C21B7C700C0B112 /* ZmonAlertDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonAlertDefinition.swift; path = client/domain/ZmonAlertDefinition.swift; sourceTree = "<group>"; };
+		0DFADF401C21B9F300C0B112 /* ZmonAlertStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonAlertStatus.swift; path = client/domain/ZmonAlertStatus.swift; sourceTree = "<group>"; };
+		0DFADF421C21BA5D00C0B112 /* ZmonAlertsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonAlertsService.swift; path = client/ZmonAlertsService.swift; sourceTree = "<group>"; };
 		59F8B5D03C5F913FF6BF138B /* Pods_zmon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_zmon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AEB6E52BB7F6D431B9E3A93 /* Pods-zmon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zmon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zmon/Pods-zmon.debug.xcconfig"; sourceTree = "<group>"; };
 		DBE641BB20ACBE641E541147 /* Pods-zmon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zmon.release.xcconfig"; path = "Pods/Target Support Files/Pods-zmon/Pods-zmon.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +124,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D22DFDC1C229E60007759B5 /* application */ = {
+			isa = PBXGroup;
+			children = (
+				0D22DFDD1C229E79007759B5 /* ZmonApplication.swift */,
+			);
+			name = application;
+			sourceTree = "<group>";
+		};
+		0D22DFDF1C229ED8007759B5 /* persistence */ = {
+			isa = PBXGroup;
+			children = (
+				0D22DFE01C229EF0007759B5 /* Team.swift */,
+			);
+			name = persistence;
+			sourceTree = "<group>";
+		};
 		0D9A497A1C202E5800026678 = {
 			isa = PBXGroup;
 			children = (
@@ -129,13 +165,16 @@
 		0D9A49851C202E5900026678 /* zmon */ = {
 			isa = PBXGroup;
 			children = (
+				0D22DFDC1C229E60007759B5 /* application */,
 				0D9A49DD1C21540500026678 /* extensions */,
 				0D9A49B71C203B8D00026678 /* client */,
+				0DFADF3B1C21AD0300C0B112 /* cells */,
 				0D9A49B41C20358900026678 /* controllers */,
+				0D22DFDF1C229ED8007759B5 /* persistence */,
 				0D9A49861C202E5900026678 /* AppDelegate.swift */,
 				0D9A498A1C202E5900026678 /* Main.storyboard */,
-				0D9A498D1C202E5900026678 /* Assets.xcassets */,
 				0D9A498F1C202E5900026678 /* LaunchScreen.storyboard */,
+				0D9A498D1C202E5900026678 /* Assets.xcassets */,
 				0DFADF2E1C21727600C0B112 /* GoogleService-Info.plist */,
 				0D9A49921C202E5900026678 /* Info.plist */,
 				0D9A49E41C21570C00026678 /* Localizable.strings */,
@@ -165,10 +204,13 @@
 		0D9A49B41C20358900026678 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0DFADF371C218CA700C0B112 /* BaseVC.swift */,
 				0D9A49881C202E5900026678 /* RootVC.swift */,
-				0D9A49CD1C20608A00026678 /* ZmonStatusVC.swift */,
-				0D9A49D11C2067E800026678 /* NavigationVC.swift */,
 				0D9A49E51C215E2300026678 /* SideMenuVC.swift */,
+				0D9A49D11C2067E800026678 /* NavigationVC.swift */,
+				0D9A49CD1C20608A00026678 /* ZmonStatusVC.swift */,
+				0D22DFDA1C21C247007759B5 /* ZmonDashboardVC.swift */,
+				0DFADF391C21AAC800C0B112 /* ObservedTeamsVC.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -177,8 +219,10 @@
 			isa = PBXGroup;
 			children = (
 				0D9A49B81C203B9200026678 /* domain */,
-				0D9A49C91C2041EB00026678 /* ZmonStatusService.swift */,
 				0D9A49D31C214C3700026678 /* ZmonService.swift */,
+				0D9A49C91C2041EB00026678 /* ZmonStatusService.swift */,
+				0DFADF331C21835000C0B112 /* ZmonTeamService.swift */,
+				0DFADF421C21BA5D00C0B112 /* ZmonAlertsService.swift */,
 			);
 			name = client;
 			sourceTree = "<group>";
@@ -190,6 +234,8 @@
 				0D9A49C21C203EAD00026678 /* ZmonQueue.swift */,
 				0D9A49C31C203EAD00026678 /* ZmonStatus.swift */,
 				0D9A49C41C203EAD00026678 /* ZmonWorker.swift */,
+				0DFADF3E1C21B7C700C0B112 /* ZmonAlertDefinition.swift */,
+				0DFADF401C21B9F300C0B112 /* ZmonAlertStatus.swift */,
 			);
 			name = domain;
 			sourceTree = "<group>";
@@ -200,6 +246,14 @@
 				0D9A49DE1C21542700026678 /* String.swift */,
 			);
 			name = extensions;
+			sourceTree = "<group>";
+		};
+		0DFADF3B1C21AD0300C0B112 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				0DFADF3C1C21AD2700C0B112 /* TeamCell.swift */,
+			);
+			name = cells;
 			sourceTree = "<group>";
 		};
 		8F129E7E79DCE97CE77B3F77 /* Frameworks */ = {
@@ -291,6 +345,11 @@
 					0D9A49821C202E5800026678 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = KH53W9VNG5;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					0D9A49961C202E5900026678 = {
 						CreatedOnToolsVersion = 7.2;
@@ -404,16 +463,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DFADF3D1C21AD2700C0B112 /* TeamCell.swift in Sources */,
 				0D9A49C51C203EAD00026678 /* ZmonEntity.swift in Sources */,
+				0DFADF411C21B9F300C0B112 /* ZmonAlertStatus.swift in Sources */,
 				0D9A49DF1C21542700026678 /* String.swift in Sources */,
 				0D9A49E61C215E2300026678 /* SideMenuVC.swift in Sources */,
 				0D9A49C81C203EAD00026678 /* ZmonWorker.swift in Sources */,
 				0D9A49C71C203EAD00026678 /* ZmonStatus.swift in Sources */,
+				0DFADF381C218CA700C0B112 /* BaseVC.swift in Sources */,
+				0D22DFE11C229EF0007759B5 /* Team.swift in Sources */,
+				0DFADF431C21BA5D00C0B112 /* ZmonAlertsService.swift in Sources */,
 				0D9A49D21C2067E800026678 /* NavigationVC.swift in Sources */,
 				0D9A49CE1C20608A00026678 /* ZmonStatusVC.swift in Sources */,
 				0D9A49D41C214C3700026678 /* ZmonService.swift in Sources */,
+				0DFADF3A1C21AAC800C0B112 /* ObservedTeamsVC.swift in Sources */,
+				0D22DFDB1C21C247007759B5 /* ZmonDashboardVC.swift in Sources */,
 				0D9A49CA1C2041EB00026678 /* ZmonStatusService.swift in Sources */,
+				0DFADF341C21835000C0B112 /* ZmonTeamService.swift in Sources */,
 				0D9A49C61C203EAD00026678 /* ZmonQueue.swift in Sources */,
+				0D22DFDE1C229E79007759B5 /* ZmonApplication.swift in Sources */,
+				0DFADF3F1C21B7C700C0B112 /* ZmonAlertDefinition.swift in Sources */,
 				0D9A49891C202E5900026678 /* RootVC.swift in Sources */,
 				0D9A49871C202E5900026678 /* AppDelegate.swift in Sources */,
 			);
@@ -570,11 +639,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = zmon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "zmon-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "45049b43-6c8f-4796-af12-089572554b7a";
+				PROVISIONING_PROFILE = "e8caa5d4-a13d-4109-a7bb-92626efada1b";
 			};
 			name = Debug;
 		};
@@ -585,11 +656,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = zmon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "zmon-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "45049b43-6c8f-4796-af12-089572554b7a";
+				PROVISIONING_PROFILE = "e8caa5d4-a13d-4109-a7bb-92626efada1b";
 			};
 			name = Release;
 		};

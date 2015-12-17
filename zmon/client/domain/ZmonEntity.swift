@@ -10,4 +10,8 @@ import EVReflection
 
 class ZmonEntity: EVObject {
     var entity: String = ""
+    
+    override func setValue(value: AnyObject!, forUndefinedKey key: String) {
+        //NOOP
+    }
 }

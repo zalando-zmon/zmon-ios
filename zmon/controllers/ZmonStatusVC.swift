@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZmonStatusVC: UIViewController {
+class ZmonStatusVC: BaseVC {
     
     // MARK: - Properties
     @IBOutlet weak var queueLabel: UILabel!

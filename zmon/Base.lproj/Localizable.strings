@@ -7,5 +7,7 @@
 */
 
 "ZmonStatus" = "ZMON Status";
+"ZmonDashboard" = "ZMON Dashboard";
 "InQueue" = "in queue";
 "ActiveWorkers" = "active workers";
+"ObservedTeams" = "Observed Teams";

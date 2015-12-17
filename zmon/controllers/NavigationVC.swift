@@ -10,13 +10,13 @@ import UIKit
 
 class NavigationVC: UINavigationController {
 
-    // MARK: - Lifecycle
+    weak var rootVC: RootVC?
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let zmonStatusVC: UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("ZmonStatusVC")
-        self.setViewControllers([zmonStatusVC], animated: false)
+        showZmonStatus()
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,15 +24,26 @@ class NavigationVC: UINavigationController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func showZmonStatus() {
+        if let zmonStatusVC: BaseVC = self.storyboard!.instantiateViewControllerWithIdentifier("ZmonStatusVC") as? BaseVC {
+            zmonStatusVC.rootVC = self.rootVC
+            self.setViewControllers([zmonStatusVC], animated: true)
+        }
     }
-    */
+    
+    func showObservedTeams() {
+        if let observedTeamsVC: BaseVC = self.storyboard!.instantiateViewControllerWithIdentifier("ObservedTeamsVC") as? BaseVC {
+            observedTeamsVC.rootVC = self.rootVC
+            self.setViewControllers([observedTeamsVC], animated: true)
+        }
+    }
+    
+    func showZmonDashboard() {
+        if let zmonDashboardVC: BaseVC = self.storyboard!.instantiateViewControllerWithIdentifier("ZmonDashboardVC") as? BaseVC {
+            zmonDashboardVC.rootVC = self.rootVC
+            self.setViewControllers([zmonDashboardVC], animated: true)
+        }
+    }
 
 }
