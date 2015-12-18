@@ -14,4 +14,7 @@ class ZmonAlertStatus: EVObject {
     var entities: [ZmonEntity] = []
     var alertDefinition: ZmonAlertDefinition?
     
+    override func setValue(value: AnyObject!, forUndefinedKey key: String) {
+        //NOOP
+    }
 }

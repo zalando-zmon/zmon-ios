@@ -9,11 +9,11 @@
 class ZmonAlertsService: NSObject {
 
     func list(success success: ([ZmonAlertStatus]) -> ()) {
-        ZmonService.sharedInstance.getObjectList(path: "/rest/allAlerts", parameters: [:], success: success)
+        ZmonService.sharedInstance.getObjectList(path: "/active-alerts", parameters: [:], headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success)
     }
     
     func listByTeam(teamName teamName: String, success: ([ZmonAlertStatus]) -> ()) {
         log.debug("Listing alerts for teams with query ?team=\(teamName)")
-        ZmonService.sharedInstance.getObjectList(path: "/rest/allAlerts", parameters: ["team": teamName], success: success)
+        ZmonService.sharedInstance.getObjectList(path: "/active-alerts", parameters: ["team": teamName], headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success)
     }
 }

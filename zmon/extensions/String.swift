@@ -20,4 +20,14 @@ extension String {
 
         return attributedString
     }
+    
+    func base64() -> String {
+        // UTF 8 str from original
+        let utf8str: NSData = self.dataUsingEncoding(NSUTF8StringEncoding)!
+        
+        // Base64 encode UTF 8 string
+        // rawValue:0 is equivalent to objc 'base64EncodedStringWithOptions:0'
+        let base64Encoded = utf8str.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        return base64Encoded
+    }
 }

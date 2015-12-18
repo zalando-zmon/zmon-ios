@@ -10,6 +10,11 @@
 		0D22DFDB1C21C247007759B5 /* ZmonDashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22DFDA1C21C247007759B5 /* ZmonDashboardVC.swift */; };
 		0D22DFDE1C229E79007759B5 /* ZmonApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22DFDD1C229E79007759B5 /* ZmonApplication.swift */; };
 		0D22DFE11C229EF0007759B5 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22DFE01C229EF0007759B5 /* Team.swift */; };
+		0D22DFED1C22D77A007759B5 /* OAuthAccessTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22DFEC1C22D77A007759B5 /* OAuthAccessTokenService.swift */; };
+		0D22DFEF1C22DABF007759B5 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22DFEE1C22DABF007759B5 /* Credentials.swift */; };
+		0D22DFF11C22DB92007759B5 /* CredentialsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22DFF01C22DB92007759B5 /* CredentialsStore.swift */; };
+		0D22DFF31C22E291007759B5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22DFF21C22E291007759B5 /* UIColor.swift */; };
+		0D22DFF51C22ED97007759B5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22DFF41C22ED97007759B5 /* LoginVC.swift */; };
 		0D9A49871C202E5900026678 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49861C202E5900026678 /* AppDelegate.swift */; };
 		0D9A49891C202E5900026678 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49881C202E5900026678 /* RootVC.swift */; };
 		0D9A498C1C202E5900026678 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D9A498A1C202E5900026678 /* Main.storyboard */; };
@@ -60,6 +65,11 @@
 		0D22DFDA1C21C247007759B5 /* ZmonDashboardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonDashboardVC.swift; path = controllers/ZmonDashboardVC.swift; sourceTree = "<group>"; };
 		0D22DFDD1C229E79007759B5 /* ZmonApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonApplication.swift; path = application/ZmonApplication.swift; sourceTree = "<group>"; };
 		0D22DFE01C229EF0007759B5 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Team.swift; path = persistence/Team.swift; sourceTree = "<group>"; };
+		0D22DFEC1C22D77A007759B5 /* OAuthAccessTokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OAuthAccessTokenService.swift; path = client/OAuthAccessTokenService.swift; sourceTree = "<group>"; };
+		0D22DFEE1C22DABF007759B5 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Credentials.swift; path = client/auth/Credentials.swift; sourceTree = "<group>"; };
+		0D22DFF01C22DB92007759B5 /* CredentialsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CredentialsStore.swift; path = client/auth/CredentialsStore.swift; sourceTree = "<group>"; };
+		0D22DFF21C22E291007759B5 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = extensions/UIColor.swift; sourceTree = "<group>"; };
+		0D22DFF41C22ED97007759B5 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginVC.swift; path = controllers/LoginVC.swift; sourceTree = "<group>"; };
 		0D9A49831C202E5900026678 /* zmon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zmon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D9A49861C202E5900026678 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D9A49881C202E5900026678 /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RootVC.swift; path = controllers/RootVC.swift; sourceTree = "<group>"; };
@@ -140,6 +150,15 @@
 			name = persistence;
 			sourceTree = "<group>";
 		};
+		0D22DFEB1C22D4CF007759B5 /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				0D22DFEE1C22DABF007759B5 /* Credentials.swift */,
+				0D22DFF01C22DB92007759B5 /* CredentialsStore.swift */,
+			);
+			name = auth;
+			sourceTree = "<group>";
+		};
 		0D9A497A1C202E5800026678 = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +223,7 @@
 		0D9A49B41C20358900026678 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0D22DFF41C22ED97007759B5 /* LoginVC.swift */,
 				0DFADF371C218CA700C0B112 /* BaseVC.swift */,
 				0D9A49881C202E5900026678 /* RootVC.swift */,
 				0D9A49E51C215E2300026678 /* SideMenuVC.swift */,
@@ -218,11 +238,13 @@
 		0D9A49B71C203B8D00026678 /* client */ = {
 			isa = PBXGroup;
 			children = (
+				0D22DFEB1C22D4CF007759B5 /* auth */,
 				0D9A49B81C203B9200026678 /* domain */,
 				0D9A49D31C214C3700026678 /* ZmonService.swift */,
 				0D9A49C91C2041EB00026678 /* ZmonStatusService.swift */,
 				0DFADF331C21835000C0B112 /* ZmonTeamService.swift */,
 				0DFADF421C21BA5D00C0B112 /* ZmonAlertsService.swift */,
+				0D22DFEC1C22D77A007759B5 /* OAuthAccessTokenService.swift */,
 			);
 			name = client;
 			sourceTree = "<group>";
@@ -244,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				0D9A49DE1C21542700026678 /* String.swift */,
+				0D22DFF21C22E291007759B5 /* UIColor.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -472,18 +495,23 @@
 				0D9A49C71C203EAD00026678 /* ZmonStatus.swift in Sources */,
 				0DFADF381C218CA700C0B112 /* BaseVC.swift in Sources */,
 				0D22DFE11C229EF0007759B5 /* Team.swift in Sources */,
+				0D22DFF31C22E291007759B5 /* UIColor.swift in Sources */,
 				0DFADF431C21BA5D00C0B112 /* ZmonAlertsService.swift in Sources */,
 				0D9A49D21C2067E800026678 /* NavigationVC.swift in Sources */,
 				0D9A49CE1C20608A00026678 /* ZmonStatusVC.swift in Sources */,
+				0D22DFF11C22DB92007759B5 /* CredentialsStore.swift in Sources */,
 				0D9A49D41C214C3700026678 /* ZmonService.swift in Sources */,
 				0DFADF3A1C21AAC800C0B112 /* ObservedTeamsVC.swift in Sources */,
 				0D22DFDB1C21C247007759B5 /* ZmonDashboardVC.swift in Sources */,
 				0D9A49CA1C2041EB00026678 /* ZmonStatusService.swift in Sources */,
 				0DFADF341C21835000C0B112 /* ZmonTeamService.swift in Sources */,
 				0D9A49C61C203EAD00026678 /* ZmonQueue.swift in Sources */,
+				0D22DFEF1C22DABF007759B5 /* Credentials.swift in Sources */,
 				0D22DFDE1C229E79007759B5 /* ZmonApplication.swift in Sources */,
 				0DFADF3F1C21B7C700C0B112 /* ZmonAlertDefinition.swift in Sources */,
+				0D22DFF51C22ED97007759B5 /* LoginVC.swift in Sources */,
 				0D9A49891C202E5900026678 /* RootVC.swift in Sources */,
+				0D22DFED1C22D77A007759B5 /* OAuthAccessTokenService.swift in Sources */,
 				0D9A49871C202E5900026678 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

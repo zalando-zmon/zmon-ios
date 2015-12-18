@@ -56,13 +56,13 @@ class ZmonDashboardVC: BaseVC, UITableViewDataSource, UITableViewDelegate {
     private func setBackgroundColor(cell cell: UITableViewCell, priority: Int) {
         switch (priority) {
         case 1:
-            cell.backgroundColor = UIColor.redColor()
+            cell.backgroundColor = ZmonColor.alertCritical
             break;
         case 2:
-            cell.backgroundColor = UIColor.orangeColor()
+            cell.backgroundColor = ZmonColor.alertMedium
             break;
         default:
-            cell.backgroundColor = UIColor.yellowColor()
+            cell.backgroundColor = ZmonColor.alertLow
             break;
         }
     }

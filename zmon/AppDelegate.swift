@@ -9,6 +9,14 @@
 import UIKit
 import XCGLogger
 
+struct ZmonColor {
+    static let alertCritical = UIColor(netHex: 0xdd3010)
+    static let alertMedium = UIColor(netHex: 0xe77a1d)
+    static let alertLow = UIColor(netHex: 0xebb129)
+    static let navigationBar = UIColor(netHex: 0x000000)
+    static let textPrimary = UIColor(netHex: 0xffffff)
+}
+
 let log = XCGLogger.defaultInstance()
 
 @UIApplicationMain

@@ -9,7 +9,7 @@
 class ZmonTeamService: NSObject {
     
     func listTeams(success success: ([String])->()) {
-        ZmonService.sharedInstance.getStringList(path: "/rest/allTeams", parameters: [:], success: success)
+        ZmonService.sharedInstance.getStringList(path: "/all-teams", parameters: [:], headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success)
     }
 
 }

@@ -16,6 +16,9 @@ class NavigationVC: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationBar.barStyle = UIBarStyle.Black
+        self.navigationBar.tintColor = ZmonColor.textPrimary
+        
         showZmonStatus()
     }
 
