@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ObservedTeamsVC: BaseVC, UITableViewDataSource, UITableViewDelegate {
 
@@ -22,7 +23,9 @@ class ObservedTeamsVC: BaseVC, UITableViewDataSource, UITableViewDelegate {
         self.table.dataSource = self
         self.table.delegate = self
         
+        SVProgressHUD.show()
         zmonTeamService.listTeams { (teams: [String]) -> () in
+            SVProgressHUD.dismiss()
             self.teamList = teams
             self.table.reloadData()
         }

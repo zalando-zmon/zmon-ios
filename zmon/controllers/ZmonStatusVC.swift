@@ -24,6 +24,7 @@ class ZmonStatusVC: BaseVC {
         self.navigationItem.title = "ZmonStatus".localized
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style:.Plain, target: self, action: "toggleDataUpdates")
         
+        self.updateZmonStatus()
         self.startDataUpdates()
     }
 

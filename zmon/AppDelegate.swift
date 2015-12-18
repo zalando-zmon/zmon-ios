@@ -8,6 +8,7 @@
 
 import UIKit
 import XCGLogger
+import SVProgressHUD
 
 struct ZmonColor {
     static let alertCritical = UIColor(netHex: 0xdd3010)
@@ -38,6 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
         // Override point for customization after application launch.
         
         log.setup(.Debug, showThreadName: true, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil, fileLogLevel: .Debug)
+        
+        SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.Dark)
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
         
         // Configure the Google context: parses the GoogleService-Info.plist, and initializes
         // the services that have entries in the file

@@ -9,6 +9,7 @@
 #ifndef Bridging_header_h
 #define Bridging_header_h
 
+#import <SVProgressHUD/SVProgressHUD.h>
 #import <Google/CloudMessaging.h>
 
 #endif /* Bridging_header_h */

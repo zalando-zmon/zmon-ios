@@ -33,6 +33,8 @@
 		0D9A49DF1C21542700026678 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49DE1C21542700026678 /* String.swift */; };
 		0D9A49E21C21570C00026678 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D9A49E41C21570C00026678 /* Localizable.strings */; };
 		0D9A49E61C215E2300026678 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49E51C215E2300026678 /* SideMenuVC.swift */; };
+		0DB58FFF1C24172A0030C776 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB58FFE1C24172A0030C776 /* QuartzCore.framework */; };
+		0DB590011C2418BA0030C776 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0DB590001C2418BA0030C776 /* SVProgressHUD.bundle */; };
 		0DFADF2F1C21727600C0B112 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DFADF2E1C21727600C0B112 /* GoogleService-Info.plist */; };
 		0DFADF341C21835000C0B112 /* ZmonTeamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADF331C21835000C0B112 /* ZmonTeamService.swift */; };
 		0DFADF381C218CA700C0B112 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADF371C218CA700C0B112 /* BaseVC.swift */; };
@@ -94,6 +96,8 @@
 		0D9A49DE1C21542700026678 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = extensions/String.swift; sourceTree = "<group>"; };
 		0D9A49E31C21570C00026678 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0D9A49E51C215E2300026678 /* SideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideMenuVC.swift; path = controllers/SideMenuVC.swift; sourceTree = "<group>"; };
+		0DB58FFE1C24172A0030C776 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0DB590001C2418BA0030C776 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = Pods/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
 		0DFADF2E1C21727600C0B112 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0DFADF321C217B6C00C0B112 /* Bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-header.h"; sourceTree = "<group>"; };
 		0DFADF331C21835000C0B112 /* ZmonTeamService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonTeamService.swift; path = client/ZmonTeamService.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DB58FFF1C24172A0030C776 /* QuartzCore.framework in Frameworks */,
 				65E52DFA7BCFDC545B598DB1 /* Pods_zmon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +287,7 @@
 		8F129E7E79DCE97CE77B3F77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DB58FFE1C24172A0030C776 /* QuartzCore.framework */,
 				59F8B5D03C5F913FF6BF138B /* Pods_zmon.framework */,
 			);
 			name = Frameworks;
@@ -290,6 +296,7 @@
 		C7BEA4C3EBD24EFF642BABAA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				0DB590001C2418BA0030C776 /* SVProgressHUD.bundle */,
 				5AEB6E52BB7F6D431B9E3A93 /* Pods-zmon.debug.xcconfig */,
 				DBE641BB20ACBE641E541147 /* Pods-zmon.release.xcconfig */,
 			);
@@ -409,6 +416,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DB590011C2418BA0030C776 /* SVProgressHUD.bundle in Resources */,
 				0D9A49911C202E5900026678 /* LaunchScreen.storyboard in Resources */,
 				0D9A49E21C21570C00026678 /* Localizable.strings in Resources */,
 				0DFADF2F1C21727600C0B112 /* GoogleService-Info.plist in Resources */,

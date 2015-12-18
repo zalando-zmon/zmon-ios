@@ -6,6 +6,7 @@ use_frameworks!
 target 'zmon' do
   pod 'XCGLogger', '~> 3.1'
   pod "AlamofireJsonToObjects", '~> 1.3'
+  pod 'SVProgressHUD', '2.0-beta'
   pod 'Google/CloudMessaging'
 end
 

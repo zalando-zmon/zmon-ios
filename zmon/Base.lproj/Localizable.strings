@@ -8,6 +8,11 @@
 
 "ZmonStatus" = "ZMON Status";
 "ZmonDashboard" = "ZMON Dashboard";
+"ObservedTeams" = "Observed Teams";
+
 "InQueue" = "in queue";
 "ActiveWorkers" = "active workers";
-"ObservedTeams" = "Observed Teams";
+
+"Username" = "Username";
+"Password" = "Password";
+"SaveCredentials" = "Save username/password";
