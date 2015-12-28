@@ -31,6 +31,10 @@ class Team: NSObject {
         if (idx == nil) {
             Team.teamList.append(self)
         }
+        else {
+            Team.teamList.removeAtIndex(idx!)
+            Team.teamList.append(self)
+        }
     }
     
     static func findByName(name name: String) -> Team? {

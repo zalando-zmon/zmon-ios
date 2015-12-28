@@ -82,4 +82,19 @@ class ZmonService: NSObject {
                 }
         }
     }
+    
+    func postJson(path path: String, parameters: [String:String], headers: [String:String], success: ()->(), failure: (NSError)->()) {
+        Alamofire
+            .request(.POST, "\(zmonEndpoint)\(path)", parameters: parameters, encoding: .JSON, headers: headers)
+            .validate()
+            .response { (request, response, data, error) -> Void in
+                if error == nil {
+                    success()
+                }
+                else {
+                    log.error(response.debugDescription)
+                    failure(error!)
+                }
+        }
+    }
 }

@@ -72,7 +72,24 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     credentialsStore.setSaveCredentials(saveCredentials: false)
                 }
                 
+                //Store accessToken
                 credentialsStore.setAccessToken(token)
+                
+                //Register for remote push notifications
+                if let deviceToken = GCMTokenStore.sharedInstance.deviceToken() {
+                    let zmonAlertsService: ZmonAlertsService = ZmonAlertsService()
+                    let deviceSubscription: DeviceSubscription = DeviceSubscription.withRegistrationToken(registrationToken: deviceToken)
+                    
+                    zmonAlertsService.registerDevice(deviceSubscription: deviceSubscription,
+                        success: { () -> () in
+                            log.info("Successfully registered for push notifications!")
+                        },
+                        failure: { (error: NSError) -> () in
+                            log.error(error.debugDescription)
+                    })
+                }
+                
+                //Show first screen
                 if let rootVC: UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("RootVC") {
                     SVProgressHUD.dismiss()
                     self.presentViewController(rootVC, animated: true, completion: nil)

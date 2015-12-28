@@ -147,6 +147,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
     func registrationHandler(registrationToken: String!, error: NSError!) {
         if (registrationToken != nil) {
             self.registrationToken = registrationToken
+            GCMTokenStore.sharedInstance.setDeviceToken(registrationToken)
             log.info("Registration Token: \(registrationToken)")
             self.subscribeToTopic()
             let userInfo = ["registrationToken": registrationToken]

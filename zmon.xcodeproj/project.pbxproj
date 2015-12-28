@@ -35,6 +35,8 @@
 		0D9A49E61C215E2300026678 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A49E51C215E2300026678 /* SideMenuVC.swift */; };
 		0DB58FFF1C24172A0030C776 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB58FFE1C24172A0030C776 /* QuartzCore.framework */; };
 		0DB590011C2418BA0030C776 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0DB590001C2418BA0030C776 /* SVProgressHUD.bundle */; };
+		0DB590031C24313E0030C776 /* DeviceSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB590021C24313E0030C776 /* DeviceSubscription.swift */; };
+		0DB590051C2437C50030C776 /* GCMTokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB590041C2437C50030C776 /* GCMTokenStore.swift */; };
 		0DFADF2F1C21727600C0B112 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DFADF2E1C21727600C0B112 /* GoogleService-Info.plist */; };
 		0DFADF341C21835000C0B112 /* ZmonTeamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADF331C21835000C0B112 /* ZmonTeamService.swift */; };
 		0DFADF381C218CA700C0B112 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADF371C218CA700C0B112 /* BaseVC.swift */; };
@@ -98,6 +100,8 @@
 		0D9A49E51C215E2300026678 /* SideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideMenuVC.swift; path = controllers/SideMenuVC.swift; sourceTree = "<group>"; };
 		0DB58FFE1C24172A0030C776 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0DB590001C2418BA0030C776 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = Pods/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		0DB590021C24313E0030C776 /* DeviceSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceSubscription.swift; path = client/domain/DeviceSubscription.swift; sourceTree = "<group>"; };
+		0DB590041C2437C50030C776 /* GCMTokenStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GCMTokenStore.swift; path = application/GCMTokenStore.swift; sourceTree = "<group>"; };
 		0DFADF2E1C21727600C0B112 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0DFADF321C217B6C00C0B112 /* Bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-header.h"; sourceTree = "<group>"; };
 		0DFADF331C21835000C0B112 /* ZmonTeamService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonTeamService.swift; path = client/ZmonTeamService.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				0D22DFDD1C229E79007759B5 /* ZmonApplication.swift */,
+				0DB590041C2437C50030C776 /* GCMTokenStore.swift */,
 			);
 			name = application;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				0D9A49C41C203EAD00026678 /* ZmonWorker.swift */,
 				0DFADF3E1C21B7C700C0B112 /* ZmonAlertDefinition.swift */,
 				0DFADF401C21B9F300C0B112 /* ZmonAlertStatus.swift */,
+				0DB590021C24313E0030C776 /* DeviceSubscription.swift */,
 			);
 			name = domain;
 			sourceTree = "<group>";
@@ -494,6 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DB590031C24313E0030C776 /* DeviceSubscription.swift in Sources */,
 				0DFADF3D1C21AD2700C0B112 /* TeamCell.swift in Sources */,
 				0D9A49C51C203EAD00026678 /* ZmonEntity.swift in Sources */,
 				0DFADF411C21B9F300C0B112 /* ZmonAlertStatus.swift in Sources */,
@@ -515,6 +522,7 @@
 				0DFADF341C21835000C0B112 /* ZmonTeamService.swift in Sources */,
 				0D9A49C61C203EAD00026678 /* ZmonQueue.swift in Sources */,
 				0D22DFEF1C22DABF007759B5 /* Credentials.swift in Sources */,
+				0DB590051C2437C50030C776 /* GCMTokenStore.swift in Sources */,
 				0D22DFDE1C229E79007759B5 /* ZmonApplication.swift in Sources */,
 				0DFADF3F1C21B7C700C0B112 /* ZmonAlertDefinition.swift in Sources */,
 				0D22DFF51C22ED97007759B5 /* LoginVC.swift in Sources */,
