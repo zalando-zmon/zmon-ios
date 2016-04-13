@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         // Connect to the GCM server to receive non-APNS notifications
         GCMService.sharedInstance().connectWithHandler({
-            (NSError error) -> Void in
+            (error) -> Void in
             if error != nil {
                 log.error("Could not connect to GCM: \(error.localizedDescription)")
             } else {
@@ -166,7 +166,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
         // topic
         if(registrationToken != nil && connectedToGCM) {
             GCMPubSub.sharedInstance().subscribeWithToken(self.registrationToken, topic: subscriptionTopic,
-                options: nil, handler: {(NSError error) -> Void in
+                options: nil, handler: {(error) -> Void in
                     if (error != nil) {
                         // Treat the "already subscribed" error more gently
                         if error.code == 3001 {
