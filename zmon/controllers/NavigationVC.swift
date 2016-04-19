@@ -48,5 +48,20 @@ class NavigationVC: UINavigationController {
             self.setViewControllers([zmonDashboardVC], animated: true)
         }
     }
+    func showLogout() {
+        
+        //reset username and password
+        CredentialsStore.sharedInstance.clearCredentials()
+        //delete the token
+        CredentialsStore.sharedInstance.clearToken()
+        
+        //show the login view
+        
+        let result = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC")
+        self.presentViewController(result!, animated: false, completion: nil)
+        
+        
+    }
+
 
 }
