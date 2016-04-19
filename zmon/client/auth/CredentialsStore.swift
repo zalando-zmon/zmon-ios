@@ -38,9 +38,14 @@ class CredentialsStore: NSObject {
         }
     }
     
-    private func clearCredentials() {
+    func clearCredentials() {
         userDefaults.removeObjectForKey(Keys.username)
         userDefaults.removeObjectForKey(Keys.password)
+    }
+    
+    func clearToken() {
+        userDefaults.removeObjectForKey(Keys.accessToken)
+        
     }
     
     func setSaveCredentials(saveCredentials saveCredentials: Bool) {

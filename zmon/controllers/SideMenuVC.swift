@@ -18,7 +18,8 @@ class SideMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let menuItems : [[String:String]] = [
         ["name": "ZmonStatus".localized, "action": "showZmonStatus"],
         ["name": "ZmonDashboard".localized, "action": "showZmonDashboard"],
-        ["name": "ObservedTeams".localized, "action": "showObservedTeams"]
+        ["name": "ObservedTeams".localized, "action": "showObservedTeams"],
+        ["name": "Logout".localized, "action": "showLogout"]
     ]
     
     // MARK: - Lifecycle
