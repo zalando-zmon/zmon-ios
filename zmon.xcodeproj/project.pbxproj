@@ -689,7 +689,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.zalando.zmon.adhoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e8caa5d4-a13d-4109-a7bb-92626efada1b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -706,7 +706,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.zalando.zmon.adhoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e8caa5d4-a13d-4109-a7bb-92626efada1b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
