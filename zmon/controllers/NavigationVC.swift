@@ -58,7 +58,7 @@ class NavigationVC: UINavigationController {
         //show the login view
         
         let result = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC")
-        self.presentViewController(result!, animated: false, completion: nil)
+        self.presentViewController(result!, animated: true, completion: nil)
         
         
     }
