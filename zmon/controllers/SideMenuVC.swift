@@ -16,9 +16,11 @@ class SideMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     weak var rootVC: RootVC?
     
     let menuItems : [[String:String]] = [
-        ["name": "ZmonStatus".localized, "action": "showZmonStatus"],
-        ["name": "ZmonDashboard".localized, "action": "showZmonDashboard"],
-        ["name": "ObservedTeams".localized, "action": "showObservedTeams"]
+        ["name": "ZmonStatus".localized, "action": "showZmonStatus", "image":"ic_home_white_24dp"],
+        ["name": "ZmonDashboard".localized, "action": "showZmonDashboard", "image":"ic_favorite_white_24dp"],
+        //ToDo: Add action
+        ["name": "Observed Alerts".localized, "action": "", "image":"ic_notifications_active_white_24dp"],
+        ["name": "ObservedTeams".localized, "action": "showObservedTeams", "image":"ic_group_white_24dp"]
     ]
     
     // MARK: - Lifecycle
@@ -45,6 +47,11 @@ class SideMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("SideMenuCell")!
         cell.textLabel!.text = menuRecord["name"]!
+        //check if image is defined and not nil, insert if true
+        if menuRecord["image"] != nil{
+            let image : UIImage = UIImage(named: menuRecord["image"]!)!
+            cell.imageView!.image = image
+        }
         return cell
     }
     
