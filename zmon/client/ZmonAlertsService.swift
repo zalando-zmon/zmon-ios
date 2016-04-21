@@ -44,4 +44,24 @@ class ZmonAlertsService: NSObject {
                 }
         }
     }
+    
+    func subscribeToAlertWithID(alertID: String, success: ()->(), failure: (NSError)->()) {
+        
+        let path = "https://zmon-notification-service.stups.zalan.do/api/v1/subscription"
+        let parameters = ["alert_id":alertID]
+        let headers = CredentialsStore.sharedInstance.accessTokenHeader()
+        
+        Alamofire
+            .request(.POST, path, parameters: parameters, encoding: .JSON, headers: headers)
+            .validate()
+            .response { (request, response, data, error) -> Void in
+                if error == nil {
+                    success()
+                }
+                else {
+                    log.error(response.debugDescription)
+                    failure(error!)
+                }
+        }
+    }
 }
