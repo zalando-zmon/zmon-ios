@@ -6,6 +6,8 @@
 //  Copyright © 2015 Zalando Tech. All rights reserved.
 //
 
+import Alamofire
+
 class ZmonAlertsService: NSObject {
 
     func list(success success: ([ZmonAlertStatus]) -> ()) {
@@ -21,5 +23,25 @@ class ZmonAlertsService: NSObject {
         let parameters: [String:String] = deviceSubscription.toDictionary() as! [String:String]
         
         ZmonService.sharedInstance.postJson(path: "/device", parameters: parameters, headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success, failure: failure)
+    }
+    
+    func registerDeviceWithToken(token: String, success: () -> (), failure: (NSError) -> ()) {
+        
+        // TODO: We cannot use the ZmonSerivce class as it uses /mobile endpoint for all calls. This is why the path is explicit. Better solution needed...
+        
+        let path = "https://zmon-notification-service.stups.zalan.do/api/v1/device"
+        
+        Alamofire
+            .request(.POST, path, parameters: ["registration_token":token], encoding: .JSON, headers: CredentialsStore.sharedInstance.accessTokenHeader())
+            .validate()
+            .response { (request, response, data, error) -> Void in
+                if error == nil {
+                    success()
+                }
+                else {
+                    log.error(response.debugDescription)
+                    failure(error!)
+                }
+        }
     }
 }
