@@ -37,6 +37,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         if let saveCredentials: Bool = CredentialsStore.sharedInstance.saveCredentials() {
             self.saveCredentialsSwitch.on = saveCredentials
         }
+        
+        
     }
     
     
