@@ -9,16 +9,21 @@
 import UIKit
 import SVProgressHUD
 
-class ObservedTeamsVC: BaseVC, UITableViewDataSource, UITableViewDelegate {
+class ObservedTeamsVC: BaseVC, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
 
     @IBOutlet weak var table: UITableView!
+    let searchController = UISearchController(searchResultsController: nil)
+    
     
     let zmonTeamService: ZmonTeamService = ZmonTeamService()
     var teamList: [String] = []
+    var filteredTeamList = [String]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "ObservedTeams".localized
+        self.setupSearch()
         
         self.table.dataSource = self
         self.table.delegate = self
@@ -38,11 +43,11 @@ class ObservedTeamsVC: BaseVC, UITableViewDataSource, UITableViewDelegate {
 
     // MARK:- UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.teamList.count
+        return isSearching() ? self.filteredTeamList.count : self.teamList.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let teamName = self.teamList[indexPath.row]
+        let teamName = isSearching() ? self.filteredTeamList[indexPath.row] : self.teamList[indexPath.row]
         
         let cell: TeamCell = tableView.dequeueReusableCellWithIdentifier("TeamCell") as! TeamCell
         cell.configureFor(name: teamName)
@@ -67,5 +72,30 @@ class ObservedTeamsVC: BaseVC, UITableViewDataSource, UITableViewDelegate {
         let teamName = self.teamList[indexPath.row]
         let team: Team = Team(name: teamName, observed: false)
         team.save()
+    }
+    
+    //MARK: Searching and UISearchResultsUpdating
+    func setupSearch() {
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.barStyle = .Black
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        table.tableHeaderView = searchController.searchBar
+    }
+    
+    func isSearching() -> Bool {
+        return searchController.active && searchController.searchBar.text != ""
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterTeamsForSearchText(searchController.searchBar.text!)
+    }
+    
+    func filterTeamsForSearchText(searchText: String, scope: String = "All") {
+        filteredTeamList = teamList.filter { team in
+            return team.lowercaseString.containsString(searchText.lowercaseString)
+        }
+        
+        table.reloadData()
     }
 }
