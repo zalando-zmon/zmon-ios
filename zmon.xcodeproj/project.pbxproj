@@ -380,7 +380,7 @@
 				TargetAttributes = {
 					0D9A49821C202E5800026678 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = KH53W9VNG5;
+						DevelopmentTeam = J67E9B6234;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -687,9 +687,9 @@
 				INFOPLIST_FILE = zmon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "zmon-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = de.zalando.zmon.adhoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e8caa5d4-a13d-4109-a7bb-92626efada1b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -704,9 +704,9 @@
 				INFOPLIST_FILE = zmon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "zmon-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = de.zalando.zmon.adhoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e8caa5d4-a13d-4109-a7bb-92626efada1b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
