@@ -42,6 +42,13 @@ class NavigationVC: UINavigationController {
         }
     }
     
+    func showObservedAlerts() {
+        if let observedAlertsVC = self.storyboard?.instantiateViewControllerWithIdentifier("ObservedAlertsVC") as? ObservedAlertsVC {
+            observedAlertsVC.rootVC = rootVC
+            setViewControllers([observedAlertsVC], animated: true)
+        }
+    }
+    
     func showZmonDashboard() {
         if let zmonDashboardVC: BaseVC = self.storyboard!.instantiateViewControllerWithIdentifier("ZmonDashboardVC") as? BaseVC {
             zmonDashboardVC.rootVC = self.rootVC

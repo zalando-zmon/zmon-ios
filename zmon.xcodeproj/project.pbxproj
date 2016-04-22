@@ -46,6 +46,7 @@
 		0DFADF411C21B9F300C0B112 /* ZmonAlertStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADF401C21B9F300C0B112 /* ZmonAlertStatus.swift */; };
 		0DFADF431C21BA5D00C0B112 /* ZmonAlertsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADF421C21BA5D00C0B112 /* ZmonAlertsService.swift */; };
 		65E52DFA7BCFDC545B598DB1 /* Pods_zmon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F8B5D03C5F913FF6BF138B /* Pods_zmon.framework */; };
+		C7CA73531CCA61E300B0D170 /* ObservedAlertsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CA73521CCA61E300B0D170 /* ObservedAlertsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		0DFADF421C21BA5D00C0B112 /* ZmonAlertsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonAlertsService.swift; path = client/ZmonAlertsService.swift; sourceTree = "<group>"; };
 		59F8B5D03C5F913FF6BF138B /* Pods_zmon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_zmon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AEB6E52BB7F6D431B9E3A93 /* Pods-zmon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zmon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zmon/Pods-zmon.debug.xcconfig"; sourceTree = "<group>"; };
+		C7CA73521CCA61E300B0D170 /* ObservedAlertsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObservedAlertsVC.swift; path = controllers/ObservedAlertsVC.swift; sourceTree = "<group>"; };
 		DBE641BB20ACBE641E541147 /* Pods-zmon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zmon.release.xcconfig"; path = "Pods/Target Support Files/Pods-zmon/Pods-zmon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -241,6 +243,7 @@
 				0D9A49CD1C20608A00026678 /* ZmonStatusVC.swift */,
 				0D22DFDA1C21C247007759B5 /* ZmonDashboardVC.swift */,
 				0DFADF391C21AAC800C0B112 /* ObservedTeamsVC.swift */,
+				C7CA73521CCA61E300B0D170 /* ObservedAlertsVC.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				0D9A49C61C203EAD00026678 /* ZmonQueue.swift in Sources */,
 				0D22DFEF1C22DABF007759B5 /* Credentials.swift in Sources */,
 				0DB590051C2437C50030C776 /* GCMTokenStore.swift in Sources */,
+				C7CA73531CCA61E300B0D170 /* ObservedAlertsVC.swift in Sources */,
 				0D22DFDE1C229E79007759B5 /* ZmonApplication.swift in Sources */,
 				0DFADF3F1C21B7C700C0B112 /* ZmonAlertDefinition.swift in Sources */,
 				0D22DFF51C22ED97007759B5 /* LoginVC.swift in Sources */,

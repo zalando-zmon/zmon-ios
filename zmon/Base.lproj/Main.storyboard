@@ -349,6 +349,25 @@
             </objects>
             <point key="canvasLocation" x="984" y="1666"/>
         </scene>
+        <!--Observed AlertsVC-->
+        <scene sceneID="7sp-3z-3L8">
+            <objects>
+                <viewController storyboardIdentifier="ObservedAlertsVC" id="c4H-eA-Ycw" customClass="ObservedAlertsVC" customModule="zmon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xvu-44-iGP"/>
+                        <viewControllerLayoutGuide type="bottom" id="ql8-BZ-YaA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JMF-2R-13P">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ohE-JO-GPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="984" y="2397"/>
+        </scene>
         <!--Zmon StatusVC-->
         <scene sceneID="CK4-JS-GNk">
             <objects>
