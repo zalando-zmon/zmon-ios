@@ -20,7 +20,8 @@ class SideMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         ["name": "ZmonDashboard".localized, "action": "showZmonDashboard", "image":"ic_favorite_white_24dp"],
         //ToDo: Add action
         ["name": "Observed Alerts".localized, "action": "", "image":"ic_notifications_active_white_24dp"],
-        ["name": "ObservedTeams".localized, "action": "showObservedTeams", "image":"ic_group_white_24dp"]
+        ["name": "ObservedTeams".localized, "action": "showObservedTeams", "image":"ic_group_white_24dp"],
+        ["name": "Logout".localized, "action": "showLogout"]
     ]
     
     // MARK: - Lifecycle
