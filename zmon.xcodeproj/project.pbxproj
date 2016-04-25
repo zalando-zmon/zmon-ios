@@ -47,6 +47,7 @@
 		0DFADF431C21BA5D00C0B112 /* ZmonAlertsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADF421C21BA5D00C0B112 /* ZmonAlertsService.swift */; };
 		65E52DFA7BCFDC545B598DB1 /* Pods_zmon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F8B5D03C5F913FF6BF138B /* Pods_zmon.framework */; };
 		C7646E5C1CCDF90C0021F2F5 /* ZmonServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7646E5B1CCDF90C0021F2F5 /* ZmonServiceResponse.swift */; };
+		C7646E5E1CCE3A7A0021F2F5 /* RemoteAlertsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7646E5D1CCE3A7A0021F2F5 /* RemoteAlertsVC.swift */; };
 		C7CA73531CCA61E300B0D170 /* ObservedAlertsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CA73521CCA61E300B0D170 /* ObservedAlertsVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +117,7 @@
 		59F8B5D03C5F913FF6BF138B /* Pods_zmon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_zmon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AEB6E52BB7F6D431B9E3A93 /* Pods-zmon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zmon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zmon/Pods-zmon.debug.xcconfig"; sourceTree = "<group>"; };
 		C7646E5B1CCDF90C0021F2F5 /* ZmonServiceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonServiceResponse.swift; path = client/ZmonServiceResponse.swift; sourceTree = "<group>"; };
+		C7646E5D1CCE3A7A0021F2F5 /* RemoteAlertsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteAlertsVC.swift; path = controllers/RemoteAlertsVC.swift; sourceTree = "<group>"; };
 		C7CA73521CCA61E300B0D170 /* ObservedAlertsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObservedAlertsVC.swift; path = controllers/ObservedAlertsVC.swift; sourceTree = "<group>"; };
 		DBE641BB20ACBE641E541147 /* Pods-zmon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zmon.release.xcconfig"; path = "Pods/Target Support Files/Pods-zmon/Pods-zmon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -246,6 +248,7 @@
 				0D22DFDA1C21C247007759B5 /* ZmonDashboardVC.swift */,
 				0DFADF391C21AAC800C0B112 /* ObservedTeamsVC.swift */,
 				C7CA73521CCA61E300B0D170 /* ObservedAlertsVC.swift */,
+				C7646E5D1CCE3A7A0021F2F5 /* RemoteAlertsVC.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				0D22DFED1C22D77A007759B5 /* OAuthAccessTokenService.swift in Sources */,
 				0D9A49871C202E5900026678 /* AppDelegate.swift in Sources */,
 				C7646E5C1CCDF90C0021F2F5 /* ZmonServiceResponse.swift in Sources */,
+				C7646E5E1CCE3A7A0021F2F5 /* RemoteAlertsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
