@@ -18,9 +18,13 @@ class RemoteAlertsVC: BaseVC {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        tableView.estimatedRowHeight = 40
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         navigationItem.title = "RemoteAlerts".localized
     }
-    
+
     @IBAction func onDoneButtonTap(sender: UIBarButtonItem) {
 
         dismissViewControllerAnimated(true, completion: nil)
@@ -59,7 +63,9 @@ extension RemoteAlertsVC: UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("AlertCell", forIndexPath: indexPath)
         let alert = remoteAlerts[indexPath.row];
         
+        cell.accessoryType = .None
         cell.textLabel?.text = alert.name
+        cell.detailTextLabel?.text = "\(alert.id), \(alert.team)"
         
         return cell
     }
