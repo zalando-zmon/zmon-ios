@@ -19,6 +19,30 @@ class ZmonAlertsService: NSObject {
         ZmonService.sharedInstance.getObjectList(path: "/active-alerts", parameters: ["team": teamName], headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success)
     }
     
+    func listRemoteObservableAlertsWithCompletion(completion: (alerts: [ZmonServiceResponse.Alert]?) -> ()) {
+        
+        let path = "https://zmon-notification-service.stups.zalan.do/api/v1/mobile/alert"
+        let headers = CredentialsStore.sharedInstance.accessTokenHeader()
+        
+        Alamofire.request(.GET, path, parameters: [:], encoding: .URL, headers: headers).responseJSON { response in
+            
+            guard let rootJsonObject = response.result.value else {
+                log.error("Failed to fetch remote observable alerts with error: \(response.result.error)")
+                completion(alerts: nil)
+                return
+            }
+            
+            guard let jsonArray = rootJsonObject as? NSArray else {
+                log.error("Error while parsing remote alerts data: invalid JSON object found where NSArray was expected")
+                completion(alerts: nil)
+                return
+            }
+            
+            let parsedAlerts = ZmonServiceResponse.parseAlertCollectionWithJSONArray(jsonArray)
+            completion(alerts: parsedAlerts)
+        }
+    }
+    
     func registerDevice(deviceSubscription deviceSubscription: DeviceSubscription, success: () -> (), failure: (NSError) -> ()) {
         let parameters: [String:String] = deviceSubscription.toDictionary() as! [String:String]
         
