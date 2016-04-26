@@ -43,6 +43,39 @@ class ZmonAlertsService: NSObject {
         }
     }
     
+    func listUserObservedAlertsWithCompletion(completion: (alertIDs: [Int]?) -> ()) {
+        
+        let path = "https://zmon-notification-service.stups.zalan.do/api/v1/user/subscriptions"
+        let headers = CredentialsStore.sharedInstance.accessTokenHeader()
+        
+        Alamofire.request(.GET, path, parameters: [:], encoding: .URL, headers: headers).responseString { response in
+            
+            if let responseString = response.result.value {
+                
+                // The response is in format of "[123,456,789,...]"
+
+                let skipChars = NSMutableCharacterSet(charactersInString: "[],")
+                skipChars.formUnionWithCharacterSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+
+                let scanner = NSScanner(string: responseString)
+                scanner.charactersToBeSkipped = skipChars
+                
+                var result: [Int] = []
+                var scannedID:Int = 0
+                
+                while scanner.scanInteger(&scannedID) {
+                    result.append(scannedID)
+                }
+                
+                completion(alertIDs: result)
+
+            } else {
+                log.error("Failed to list user observed alerts with error: \(response.result.error?.localizedDescription)")
+                completion(alertIDs: nil)
+            }
+        }
+    }
+    
     func registerDevice(deviceSubscription deviceSubscription: DeviceSubscription, success: () -> (), failure: (NSError) -> ()) {
         let parameters: [String:String] = deviceSubscription.toDictionary() as! [String:String]
         

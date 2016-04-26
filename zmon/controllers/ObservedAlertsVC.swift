@@ -13,11 +13,27 @@ class ObservedAlertsVC: BaseVC {
     @IBOutlet weak var tableView: UITableView!
     
     let alertService = ZmonAlertsService()
-    var observedAlerts: [ZmonServiceResponse.Alert] = []
+    var observedAlertIDs: [Int] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationItem()
+    }
+    
+    func fetchUserObservedAlerts() {
+        
+        alertService.listUserObservedAlertsWithCompletion { alerts in
+            
+            if let alerts = alerts {
+                
+                log.info("Successfully fetched user observed alerts (\(alerts.count))")
+                self.observedAlertIDs = alerts
+                self.tableView.reloadData()
+                
+            } else {
+                log.error("Failed to fetch user observed alerts")
+            }
+        }
     }
     
     func configureNavigationItem() {
@@ -43,15 +59,15 @@ extension ObservedAlertsVC: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return observedAlerts.count
+        return observedAlertIDs.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("AlertCell", forIndexPath: indexPath)
-        let alert = observedAlerts[indexPath.row];
+        let alert = observedAlertIDs[indexPath.row];
         
-        cell.textLabel?.text = alert.name
+        cell.textLabel?.text = "\(alert)"
         
         return cell
     }
