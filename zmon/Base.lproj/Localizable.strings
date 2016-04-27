@@ -12,6 +12,7 @@
 "ObservedAlerts" = "Observed Alerts";
 "RemoteAlerts" = "Remote Alerts";
 "Logout" = "Logout";
+"AlertUnsubscribe" = "Unsubscribe";
 
 "InQueue" = "in queue";
 "ActiveWorkers" = "active workers";

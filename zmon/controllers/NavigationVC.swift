@@ -45,7 +45,7 @@ class NavigationVC: UINavigationController {
     func showObservedAlerts() {
         if let observedAlertsVC = self.storyboard?.instantiateViewControllerWithIdentifier("ObservedAlertsVC") as? ObservedAlertsVC {
             observedAlertsVC.rootVC = rootVC
-            observedAlertsVC.fetchUserObservedAlerts()
+            observedAlertsVC.fetchRemoteAlerts()
             setViewControllers([observedAlertsVC], animated: true)
         }
     }

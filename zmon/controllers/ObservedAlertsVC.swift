@@ -13,27 +13,55 @@ class ObservedAlertsVC: BaseVC {
     @IBOutlet weak var tableView: UITableView!
     
     let alertService = ZmonAlertsService()
-    var observedAlertIDs: [Int] = []
+    var observedAlerts: [ZmonServiceResponse.Alert] = []
+    var remoteAlerts: [ZmonServiceResponse.Alert] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationItem()
+        configureTableView()
+    }
+    
+    func fetchRemoteAlerts() {
+        
+        alertService.listRemoteObservableAlertsWithCompletion { alerts in
+            
+            if let alerts = alerts {
+                
+                log.info("Successfully fetched \(alerts.count) alerts!")
+                
+                self.remoteAlerts = alerts
+                self.fetchUserObservedAlerts()
+                
+            } else {
+                log.error("Failed to fetch remote alerts")
+            }
+        }
     }
     
     func fetchUserObservedAlerts() {
         
-        alertService.listUserObservedAlertsWithCompletion { alerts in
+        alertService.listUserObservedAlertsWithCompletion { alertIDs in
             
-            if let alerts = alerts {
+            if let alertIDs = alertIDs {
                 
-                log.info("Successfully fetched user observed alerts (\(alerts.count))")
-                self.observedAlertIDs = alerts
+                log.info("Successfully fetched user observed alerts (\(alertIDs.count))")
+
+                self.observedAlerts = self.remoteAlerts.filter({ (alert) -> Bool in
+                    return alertIDs.contains(alert.id)
+                })
+                
                 self.tableView.reloadData()
                 
             } else {
                 log.error("Failed to fetch user observed alerts")
             }
         }
+    }
+    
+    func configureTableView() {
+        tableView.estimatedRowHeight = 40
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     func configureNavigationItem() {
@@ -46,7 +74,16 @@ class ObservedAlertsVC: BaseVC {
         let remoteAlertsNavigationVC = storyboard?.instantiateViewControllerWithIdentifier("RemoteAlertsNavigationVC") as! UINavigationController
         let remoteAlertsVC = remoteAlertsNavigationVC.topViewController as! RemoteAlertsVC
         
+        remoteAlertsVC.observedAlerts = observedAlerts
         remoteAlertsVC.fetchRemoteAlerts()
+        
+        remoteAlertsVC.completionCallback = { observedAlerts in
+
+            self.observedAlerts = observedAlerts
+            self.tableView.reloadData()
+            
+            remoteAlertsNavigationVC.dismissViewControllerAnimated(true, completion: nil)
+        }
         
         presentViewController(remoteAlertsNavigationVC, animated: true, completion: nil)
     }
@@ -59,16 +96,42 @@ extension ObservedAlertsVC: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return observedAlertIDs.count
+        return observedAlerts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("AlertCell", forIndexPath: indexPath)
-        let alert = observedAlertIDs[indexPath.row];
-        
-        cell.textLabel?.text = "\(alert)"
+        let alert = observedAlerts[indexPath.row];
+
+        cell.textLabel?.text = alert.name
+        cell.detailTextLabel?.text = "\(alert.id), \(alert.team)"
         
         return cell
+    }
+}
+
+extension ObservedAlertsVC: UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let alert = observedAlerts[indexPath.row];
+        
+        alertService.unsubscribeFromAlertWithID("\(alert.id)", success: {
+            
+            self.observedAlerts.removeAtIndex(indexPath.row)
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            
+        }) { (error) in
+            
+        }
+    }
+    
+    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
+        return "AlertUnsubscribe".localized
     }
 }

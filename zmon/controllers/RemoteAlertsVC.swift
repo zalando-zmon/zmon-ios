@@ -16,6 +16,8 @@ class RemoteAlertsVC: BaseVC {
     var remoteAlerts: [ZmonServiceResponse.Alert] = []
     var observedAlerts: [ZmonServiceResponse.Alert] = []
     
+    var completionCallback: ((observedAlerts: [ZmonServiceResponse.Alert]) -> ())?
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -27,8 +29,7 @@ class RemoteAlertsVC: BaseVC {
     }
 
     @IBAction func onDoneButtonTap(sender: UIBarButtonItem) {
-
-        dismissViewControllerAnimated(true, completion: nil)
+        completionCallback?(observedAlerts: observedAlerts)
     }
     
     func fetchRemoteAlerts() {
