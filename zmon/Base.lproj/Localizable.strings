@@ -8,7 +8,9 @@
 
 "ZmonStatus" = "ZMON Status";
 "ZmonDashboard" = "ZMON Dashboard";
+"ObservedAlerts" = "Observed Alerts";
 "ObservedTeams" = "Observed Teams";
+"Settings" = "Settings";
 "Logout" = "Logout";
 
 "InQueue" = "in queue";
