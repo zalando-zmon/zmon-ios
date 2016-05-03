@@ -10,8 +10,11 @@
 "ZmonDashboard" = "ZMON Dashboard";
 "ObservedAlerts" = "Observed Alerts";
 "ObservedTeams" = "Observed Teams";
+"ObservedAlerts" = "Observed Alerts";
+"RemoteAlerts" = "Remote Alerts";
 "Settings" = "Settings";
 "Logout" = "Logout";
+"AlertUnsubscribe" = "Unsubscribe";
 
 "InQueue" = "in queue";
 "ActiveWorkers" = "active workers";

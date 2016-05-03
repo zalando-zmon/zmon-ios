@@ -80,9 +80,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 //Register for remote push notifications
                 if let deviceToken = GCMTokenStore.sharedInstance.deviceToken() {
                     let zmonAlertsService: ZmonAlertsService = ZmonAlertsService()
-                    let deviceSubscription: DeviceSubscription = DeviceSubscription.withRegistrationToken(registrationToken: deviceToken)
                     
-                    zmonAlertsService.registerDevice(deviceSubscription: deviceSubscription,
+                    zmonAlertsService.registerDeviceWithToken(deviceToken,
                         success: { () -> () in
                             log.info("Successfully registered for push notifications!")
                         },
