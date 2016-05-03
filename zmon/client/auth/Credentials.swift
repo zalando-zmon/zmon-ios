@@ -17,5 +17,4 @@ class Credentials: NSObject {
         self.username = username
         self.password = password
     }
-
 }

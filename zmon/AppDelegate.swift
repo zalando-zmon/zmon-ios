@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
     
     var window: UIWindow?
     
+    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+    
     var connectedToGCM = false
     var subscribedToTopic = false
     var gcmSenderID: String?
@@ -59,6 +61,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
         let gcmConfig = GCMConfig.defaultConfig()
         gcmConfig.receiverDelegate = self
         GCMService.sharedInstance().startWithConfig(gcmConfig)
+        
+        // Add auto login in case of permanently stored token.
+        // TODO: Later change this to keychain access
+        
+        // Check if OAuth Token is still valid
+        if let token: String = CredentialsStore.sharedInstance.accessToken() {
+            
+            let creadentialstore = CredentialsStore.sharedInstance
+            creadentialstore.setAccessToken(token)
+            
+            // Token is saved, try to check if it is valid by accessing the zmon service
+            let zmonstatusservice = ZmonStatusService()
+            zmonstatusservice.status(success: { (status) in
+                // Show RootVC
+                if let rootVC: UIViewController = self.storyBoard.instantiateViewControllerWithIdentifier("RootVC") {
+                    let vc = UIApplication.sharedApplication().keyWindow?.rootViewController
+                    vc?.presentViewController(rootVC, animated: true, completion: nil)
+                }
+
+                
+            })
+
+            
+        }
+        
+        
+        
         
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
