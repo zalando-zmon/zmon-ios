@@ -48,6 +48,16 @@ class NavigationVC: UINavigationController {
             self.setViewControllers([zmonDashboardVC], animated: true)
         }
     }
+    
+    func showSettings() {
+    
+            let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
+            if let url = settingsUrl {
+                UIApplication.sharedApplication().openURL(url)
+            
+            }
+   }
+    
     func showLogout() {
         
         //reset username and password
