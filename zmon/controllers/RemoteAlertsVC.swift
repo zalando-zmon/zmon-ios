@@ -97,6 +97,7 @@ class RemoteAlertsVC: BaseVC {
     func setupSearch() {
         searchController.searchResultsUpdater = self
         searchController.searchBar.barStyle = .Black
+        searchController.searchBar.keyboardAppearance = .Dark
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar

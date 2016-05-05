@@ -78,6 +78,7 @@ class ObservedTeamsVC: BaseVC, UITableViewDataSource, UITableViewDelegate, UISea
     func setupSearch() {
         searchController.searchResultsUpdater = self
         searchController.searchBar.barStyle = .Black
+        searchController.searchBar.keyboardAppearance = .Dark
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         table.tableHeaderView = searchController.searchBar
