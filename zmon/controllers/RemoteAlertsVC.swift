@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SVProgressHUD
 
 class RemoteAlertsVC: BaseVC {
     
@@ -38,25 +39,35 @@ class RemoteAlertsVC: BaseVC {
 
     func subscribeToAlert(alert: ZmonServiceResponse.Alert, indexPath: NSIndexPath) {
         
+        SVProgressHUD.show()
+        
         alertService.subscribeToAlertWithID("\(alert.id)", success: {
             
             self.observedAlerts.append(alert)
             self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
             
+            SVProgressHUD.dismiss()
+            
         }) { (error) in
             
+            SVProgressHUD.dismiss()
         }
     }
     
     func unsubscribeFromAlert(alert: ZmonServiceResponse.Alert, indexPath: NSIndexPath) {
+        
+        SVProgressHUD.show()
         
         alertService.unsubscribeFromAlertWithID("\(alert.id)", success: {
             
             self.removeObservedAlert(alert)
             self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
             
+            SVProgressHUD.dismiss()
+            
         }) { (error) in
             
+            SVProgressHUD.dismiss()
         }
     }
 
