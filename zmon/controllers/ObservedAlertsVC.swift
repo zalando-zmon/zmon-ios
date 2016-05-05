@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ObservedAlertsVC: BaseVC {
 
@@ -24,6 +25,8 @@ class ObservedAlertsVC: BaseVC {
     
     func fetchRemoteAlerts() {
         
+        SVProgressHUD.show()
+        
         alertService.listRemoteObservableAlertsWithCompletion { alerts in
             
             if let alerts = alerts {
@@ -34,6 +37,8 @@ class ObservedAlertsVC: BaseVC {
                 self.fetchUserObservedAlerts()
                 
             } else {
+                
+                SVProgressHUD.dismiss()
                 log.error("Failed to fetch remote alerts")
             }
         }
@@ -42,6 +47,8 @@ class ObservedAlertsVC: BaseVC {
     func fetchUserObservedAlerts() {
         
         alertService.listUserObservedAlertsWithCompletion { alertIDs in
+            
+            SVProgressHUD.dismiss()
             
             if let alertIDs = alertIDs {
                 
