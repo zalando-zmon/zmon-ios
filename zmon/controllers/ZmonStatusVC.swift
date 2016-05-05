@@ -22,7 +22,7 @@ class ZmonStatusVC: BaseVC {
         super.viewDidLoad()
         
         self.navigationItem.title = "ZmonStatus".localized
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style:.Plain, target: self, action: "toggleDataUpdates")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style:.Plain, target: self, action: #selector(ZmonStatusVC.toggleDataUpdates))
         
         self.updateZmonStatus()
         self.startDataUpdates()
@@ -55,7 +55,7 @@ class ZmonStatusVC: BaseVC {
         log.debug("Starting ZMON Status updates")
         self.dataUpdatesTimer = NSTimer.scheduledTimerWithTimeInterval(2.0,
             target: self,
-            selector: "updateZmonStatus",
+            selector: #selector(ZmonStatusVC.updateZmonStatus),
             userInfo: nil,
             repeats: true)
     }

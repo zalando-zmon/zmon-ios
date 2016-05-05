@@ -22,11 +22,11 @@ class RootVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("hideSideMenu"))
+        self.leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(RootVC.hideSideMenu))
         self.leftSwipe.direction = .Left
         self.view.addGestureRecognizer(self.leftSwipe)
         
-        self.rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("showSideMenu"))
+        self.rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(RootVC.showSideMenu))
         self.rightSwipe.direction = .Right
         self.view.addGestureRecognizer(self.rightSwipe)
         

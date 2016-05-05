@@ -16,7 +16,7 @@ class BaseVC: UIViewController {
         super.viewDidLoad()
         
         if let rootVC = self.rootVC {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_menu_white"), style:.Plain, target: rootVC, action: "toggleSideMenu")
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_menu_white"), style:.Plain, target: rootVC, action: #selector(RootVC.toggleSideMenu))
         }
     }
 }

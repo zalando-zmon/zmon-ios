@@ -19,7 +19,7 @@ class ZmonDashboardVC: BaseVC, UITableViewDataSource, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "ZmonDashboard".localized
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style:.Plain, target: self, action: "toggleDataUpdates")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style:.Plain, target: self, action: #selector(ZmonDashboardVC.toggleDataUpdates))
         
         self.table.dataSource = self
         self.table.delegate = self
@@ -84,7 +84,7 @@ class ZmonDashboardVC: BaseVC, UITableViewDataSource, UITableViewDelegate {
         log.debug("Starting ZMON Dashboard updates")
         self.dataUpdatesTimer = NSTimer.scheduledTimerWithTimeInterval(5.0,
             target: self,
-            selector: "updateZmonDashboard",
+            selector: #selector(ZmonDashboardVC.updateZmonDashboard),
             userInfo: nil,
             repeats: true)
     }
