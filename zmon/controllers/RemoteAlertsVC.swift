@@ -82,8 +82,8 @@ class RemoteAlertsVC: BaseVC {
     
     func removeObservedAlert(alert: ZmonServiceResponse.Alert) {
         
-        let index = observedAlerts.indexOf { (alert) -> Bool in
-            return alert.id == alert.id
+        let index = observedAlerts.indexOf { (observedAlert) -> Bool in
+            return alert.id == observedAlert.id
         }
         
         guard let existingIndex = index else {
