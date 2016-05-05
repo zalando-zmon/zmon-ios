@@ -35,24 +35,7 @@ class RemoteAlertsVC: BaseVC {
     @IBAction func onDoneButtonTap(sender: UIBarButtonItem) {
         completionCallback?(observedAlerts: observedAlerts)
     }
-    
-    func fetchRemoteAlerts() {
 
-        alertService.listRemoteObservableAlertsWithCompletion { alerts in
-
-            if let alerts = alerts {
-                
-                log.info("Successfully fetched \(alerts.count) alerts!")
-                
-                self.remoteAlerts = alerts
-                self.tableView.reloadData()
-                
-            } else {
-                log.error("Failed to fetch remote alerts")
-            }
-        }
-    }
-    
     func subscribeToAlert(alert: ZmonServiceResponse.Alert, indexPath: NSIndexPath) {
         
         alertService.subscribeToAlertWithID("\(alert.id)", success: {

@@ -82,7 +82,7 @@ class ObservedAlertsVC: BaseVC {
         let remoteAlertsVC = remoteAlertsNavigationVC.topViewController as! RemoteAlertsVC
         
         remoteAlertsVC.observedAlerts = observedAlerts
-        remoteAlertsVC.fetchRemoteAlerts()
+        remoteAlertsVC.remoteAlerts = remoteAlerts
         
         remoteAlertsVC.completionCallback = { observedAlerts in
 
