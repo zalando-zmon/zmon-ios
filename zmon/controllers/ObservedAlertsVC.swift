@@ -128,13 +128,18 @@ extension ObservedAlertsVC: UITableViewDelegate {
         
         let alert = observedAlerts[indexPath.row];
         
+        SVProgressHUD.show()
+        
         alertService.unsubscribeFromAlertWithID("\(alert.id)", success: {
             
             self.observedAlerts.removeAtIndex(indexPath.row)
             self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
             
+            SVProgressHUD.dismiss()
+            
         }) { (error) in
             
+            SVProgressHUD.dismiss()
         }
     }
     
