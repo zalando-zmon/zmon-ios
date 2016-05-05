@@ -63,13 +63,13 @@ class ObservedTeamsVC: BaseVC, UITableViewDataSource, UITableViewDelegate, UISea
     
     // MARK:- UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let teamName = self.teamList[indexPath.row]
+        let teamName = isSearching() ? filteredTeamList[indexPath.row] : teamList[indexPath.row]
         let team: Team = Team(name: teamName, observed: true)
         team.save()
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        let teamName = self.teamList[indexPath.row]
+        let teamName = isSearching() ? filteredTeamList[indexPath.row] : teamList[indexPath.row]
         let team: Team = Team(name: teamName, observed: false)
         team.save()
     }
