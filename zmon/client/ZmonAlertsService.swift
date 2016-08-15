@@ -21,7 +21,7 @@ class ZmonAlertsService: NSObject {
     
     func listRemoteObservableAlertsWithCompletion(completion: (alerts: [ZmonServiceResponse.Alert]?) -> ()) {
         
-        let path = "https://zmon-notification-service.stups.zalan.do/api/v1/mobile/alert"
+        let path = "https://notification-service.zmon.zalan.do/api/v1/mobile/alert"
         let headers = CredentialsStore.sharedInstance.accessTokenHeader()
         
         Alamofire.request(.GET, path, parameters: [:], encoding: .URL, headers: headers).responseJSON { response in
@@ -45,7 +45,7 @@ class ZmonAlertsService: NSObject {
     
     func listUserObservedAlertsWithCompletion(completion: (alertIDs: [Int]?) -> ()) {
         
-        let path = "https://zmon-notification-service.stups.zalan.do/api/v1/user/subscriptions"
+        let path = "https://notification-service.zmon.zalan.do/api/v1/user/subscriptions"
         let headers = CredentialsStore.sharedInstance.accessTokenHeader()
         
         Alamofire.request(.GET, path, parameters: [:], encoding: .URL, headers: headers).responseString { response in
@@ -86,7 +86,7 @@ class ZmonAlertsService: NSObject {
         
         // TODO: We cannot use the ZmonSerivce class as it uses /mobile endpoint for all calls. This is why the path is explicit. Better solution needed...
         
-        let path = "https://zmon-notification-service.stups.zalan.do/api/v1/device"
+        let path = "https://notification-service.zmon.zalan.do/api/v1/device"
         
         Alamofire
             .request(.POST, path, parameters: ["registration_token":token], encoding: .JSON, headers: CredentialsStore.sharedInstance.accessTokenHeader())
@@ -104,7 +104,7 @@ class ZmonAlertsService: NSObject {
     
     func subscribeToAlertWithID(alertID: String, success: ()->(), failure: (NSError)->()) {
         
-        let path = "https://zmon-notification-service.stups.zalan.do/api/v1/subscription"
+        let path = "https://notification-service.zmon.zalan.do/api/v1/subscription"
         let parameters = ["alert_id":alertID]
         let headers = CredentialsStore.sharedInstance.accessTokenHeader()
         
@@ -124,7 +124,7 @@ class ZmonAlertsService: NSObject {
     
     func unsubscribeFromAlertWithID(alertID: String, success: () -> (), failure: (NSError) -> ()) {
         
-        let path = "https://zmon-notification-service.stups.zalan.do/api/v1/subscription/\(alertID)"
+        let path = "https://notification-service.zmon.zalan.do/api/v1/subscription/\(alertID)"
         let headers = CredentialsStore.sharedInstance.accessTokenHeader()
 
         Alamofire
