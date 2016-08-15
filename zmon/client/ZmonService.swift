@@ -15,7 +15,7 @@ class ZmonService: NSObject {
     static let sharedInstance: ZmonService = ZmonService()
 
     private let authEndpoint = "https://token.auth.zalando.com"
-    private let zmonEndpoint = "https://zmon-notification-service.stups.zalan.do/api/v1/mobile"
+    private let zmonEndpoint = "https://notification-service.zmon.zalan.do/api/v1/mobile"
     
     func getAuthToken(path path: String, parameters: [String:String], headers: [String:String], success: (String)->(), failure: (NSError)->()) {
         Alamofire
