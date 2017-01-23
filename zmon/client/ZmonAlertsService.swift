@@ -10,16 +10,16 @@ import Alamofire
 
 class ZmonAlertsService: NSObject {
 
-    func list(success success: ([ZmonAlertStatus]) -> ()) {
-        ZmonService.sharedInstance.getObjectList(path: "/active-alerts", parameters: [:], headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success)
+    func list(_ success: @escaping ([ZmonAlertStatus]) -> ()) {
+        ZmonService.sharedInstance.getObjectList("/active-alerts", parameters: [:], headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success)
     }
     
-    func listByTeam(teamName teamName: String, success: ([ZmonAlertStatus]) -> ()) {
+    func listByTeam(_ teamName: String, success: @escaping ([ZmonAlertStatus]) -> ()) {
         log.debug("Listing alerts for teams with query ?team=\(teamName)")
-        ZmonService.sharedInstance.getObjectList(path: "/active-alerts", parameters: ["team": teamName], headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success)
+        ZmonService.sharedInstance.getObjectList("/active-alerts", parameters: ["team": teamName], headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success)
     }
     
-    func listRemoteObservableAlertsWithCompletion(completion: (alerts: [ZmonServiceResponse.Alert]?) -> ()) {
+    func listRemoteObservableAlertsWithCompletion(_ completion: @escaping (_ alerts: [ZmonServiceResponse.Alert]?) -> ()) {
         
         let path = "https://notification-service.zmon.zalan.do/api/v1/mobile/alert"
         let headers = CredentialsStore.sharedInstance.accessTokenHeader()
@@ -43,7 +43,7 @@ class ZmonAlertsService: NSObject {
         }
     }
     
-    func listUserObservedAlertsWithCompletion(completion: (alertIDs: [Int]?) -> ()) {
+    func listUserObservedAlertsWithCompletion(_ completion: @escaping (_ alertIDs: [Int]?) -> ()) {
         
         let path = "https://notification-service.zmon.zalan.do/api/v1/user/subscriptions"
         let headers = CredentialsStore.sharedInstance.accessTokenHeader()
@@ -76,13 +76,13 @@ class ZmonAlertsService: NSObject {
         }
     }
     
-    func registerDevice(deviceSubscription deviceSubscription: DeviceSubscription, success: () -> (), failure: (NSError) -> ()) {
+    func registerDevice(_ deviceSubscription: DeviceSubscription, success: @escaping () -> (), failure: @escaping (NSError) -> ()) {
         let parameters: [String:String] = deviceSubscription.toDictionary() as! [String:String]
         
-        ZmonService.sharedInstance.postJson(path: "/device", parameters: parameters, headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success, failure: failure)
+        ZmonService.sharedInstance.postJson("/device", parameters: parameters, headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success, failure: failure)
     }
     
-    func registerDeviceWithToken(token: String, success: () -> (), failure: (NSError) -> ()) {
+    func registerDeviceWithToken(_ token: String, success: @escaping () -> (), failure: @escaping (NSError) -> ()) {
         
         // TODO: We cannot use the ZmonSerivce class as it uses /mobile endpoint for all calls. This is why the path is explicit. Better solution needed...
         
@@ -102,7 +102,7 @@ class ZmonAlertsService: NSObject {
         }
     }
     
-    func subscribeToAlertWithID(alertID: String, success: ()->(), failure: (NSError)->()) {
+    func subscribeToAlertWithID(_ alertID: String, success: @escaping ()->(), failure: @escaping (NSError)->()) {
         
         let path = "https://notification-service.zmon.zalan.do/api/v1/subscription"
         let parameters = ["alert_id":alertID]
@@ -122,7 +122,7 @@ class ZmonAlertsService: NSObject {
         }
     }
     
-    func unsubscribeFromAlertWithID(alertID: String, success: () -> (), failure: (NSError) -> ()) {
+    func unsubscribeFromAlertWithID(_ alertID: String, success: @escaping () -> (), failure: @escaping (NSError) -> ()) {
         
         let path = "https://notification-service.zmon.zalan.do/api/v1/subscription/\(alertID)"
         let headers = CredentialsStore.sharedInstance.accessTokenHeader()

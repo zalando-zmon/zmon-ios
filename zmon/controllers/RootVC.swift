@@ -23,28 +23,28 @@ class RootVC: UIViewController {
         super.viewDidLoad()
         
         self.leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(RootVC.hideSideMenu))
-        self.leftSwipe.direction = .Left
+        self.leftSwipe.direction = .left
         self.view.addGestureRecognizer(self.leftSwipe)
         
         self.rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(RootVC.showSideMenu))
-        self.rightSwipe.direction = .Right
+        self.rightSwipe.direction = .right
         self.view.addGestureRecognizer(self.rightSwipe)
         
-        if let navigationVC = self.storyboard!.instantiateViewControllerWithIdentifier("NavigationVC") as? NavigationVC {
+        if let navigationVC = self.storyboard!.instantiateViewController(withIdentifier: "NavigationVC") as? NavigationVC {
             self.navigationVC = navigationVC
             navigationVC.rootVC = self
             self.view.addSubview(navigationVC.view)
             self.addChildViewController(navigationVC)
-            navigationVC.didMoveToParentViewController(self)
+            navigationVC.didMove(toParentViewController: self)
         }
         
-        if let sideMenuVC = self.storyboard!.instantiateViewControllerWithIdentifier("SideMenuVC") as? SideMenuVC {
+        if let sideMenuVC = self.storyboard!.instantiateViewController(withIdentifier: "SideMenuVC") as? SideMenuVC {
             self.sideMenuVC = sideMenuVC
             sideMenuVC.rootVC = self
-            sideMenuVC.view.frame = CGRectMake(-self.view.frame.width-self.sideMenuGap, 0, self.view.frame.width-self.sideMenuGap, self.view.frame.height)
+            sideMenuVC.view.frame = CGRect(x: -self.view.frame.width-self.sideMenuGap, y: 0, width: self.view.frame.width-self.sideMenuGap, height: self.view.frame.height)
             self.view.addSubview(sideMenuVC.view)
             self.addChildViewController(sideMenuVC)
-            sideMenuVC.didMoveToParentViewController(self)
+            sideMenuVC.didMove(toParentViewController: self)
         }
     }
     
@@ -62,27 +62,27 @@ class RootVC: UIViewController {
     }
 
     func showSideMenu() {
-        UIView.animateWithDuration(0.5) { () -> Void in
+        UIView.animate(withDuration: 0.5, animations: { () -> Void in
             if let sideMenuVC = self.sideMenuVC {
-                sideMenuVC.view.frame = CGRectMake(0, 0, sideMenuVC.view.frame.width, sideMenuVC.view.frame.height)
+                sideMenuVC.view.frame = CGRect(x: 0, y: 0, width: sideMenuVC.view.frame.width, height: sideMenuVC.view.frame.height)
                 
                 if let navigationVC = self.navigationVC {
-                    navigationVC.view.frame = CGRectMake(sideMenuVC.view.frame.width, 0, navigationVC.view.frame.width, navigationVC.view.frame.height)
+                    navigationVC.view.frame = CGRect(x: sideMenuVC.view.frame.width, y: 0, width: navigationVC.view.frame.width, height: navigationVC.view.frame.height)
                 }
             }
-        }
+        }) 
     }
     
     func hideSideMenu() {
-        UIView.animateWithDuration(0.5) { () -> Void in
+        UIView.animate(withDuration: 0.5, animations: { () -> Void in
             if let sideMenuVC = self.sideMenuVC {
-                sideMenuVC.view.frame = CGRectMake(-sideMenuVC.view.frame.width, 0, sideMenuVC.view.frame.width, sideMenuVC.view.frame.height)
+                sideMenuVC.view.frame = CGRect(x: -sideMenuVC.view.frame.width, y: 0, width: sideMenuVC.view.frame.width, height: sideMenuVC.view.frame.height)
                 
                 if let navigationVC = self.navigationVC {
-                    navigationVC.view.frame = CGRectMake(0, 0, navigationVC.view.frame.width, navigationVC.view.frame.height)
+                    navigationVC.view.frame = CGRect(x: 0, y: 0, width: navigationVC.view.frame.width, height: navigationVC.view.frame.height)
                 }
             }
-        }
+        }) 
     }
     
 }

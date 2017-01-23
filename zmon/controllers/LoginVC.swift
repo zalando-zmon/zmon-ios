@@ -11,7 +11,7 @@ import SVProgressHUD
 
 class LoginVC: UIViewController, UITextFieldDelegate {
     
-    private let oAuthAccessTokenService: OAuthAccessTokenService = OAuthAccessTokenService()
+    fileprivate let oAuthAccessTokenService: OAuthAccessTokenService = OAuthAccessTokenService()
     
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -35,7 +35,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         }
         
         if let saveCredentials: Bool = CredentialsStore.sharedInstance.saveCredentials() {
-            self.saveCredentialsSwitch.on = saveCredentials
+            self.saveCredentialsSwitch.isOn = saveCredentials
         }
         
         
@@ -43,15 +43,15 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     
     //MARK: User actions
-    private func login() {
+    fileprivate func login() {
         if (usernameField.text!.isEmpty || passwordField.text!.isEmpty) {
             let alertController = UIAlertController(
                 title: "Login error",
                 message:"Empty username or password",
-                preferredStyle: UIAlertControllerStyle.Alert)
+                preferredStyle: UIAlertControllerStyle.alert)
             
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-            self.presentViewController(alertController, animated: true, completion: nil)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
             
             return
         }
@@ -62,16 +62,16 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         let credentialsStore = CredentialsStore.sharedInstance
         
         SVProgressHUD.show()
-        oAuthAccessTokenService.login(username: username, password: password,
+        oAuthAccessTokenService.login(username, password: password,
             success: { (token: String) -> () in
                 
                 //Store credentials and saving prefs only if they were correct
-                if self.saveCredentialsSwitch.on {
-                    credentialsStore.setSaveCredentials(saveCredentials: true)
-                    credentialsStore.setCredentials(credentials: Credentials(username: username, password: password))
+                if self.saveCredentialsSwitch.isOn {
+                    credentialsStore.setSaveCredentials(true)
+                    credentialsStore.setCredentials(Credentials(username: username, password: password))
                 }
                 else {
-                    credentialsStore.setSaveCredentials(saveCredentials: false)
+                    credentialsStore.setSaveCredentials(false)
                 }
                 
                 //Store accessToken
@@ -91,9 +91,9 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 }
                 
                 //Show first screen
-                if let rootVC: UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("RootVC") {
+                if let rootVC: UIViewController = self.storyboard?.instantiateViewController(withIdentifier: "RootVC") {
                     SVProgressHUD.dismiss()
-                    self.presentViewController(rootVC, animated: true, completion: nil)
+                    self.present(rootVC, animated: true, completion: nil)
                 }
             },
             failure: { (error: NSError) -> () in
@@ -101,19 +101,19 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 let alertController = UIAlertController(
                     title: "Login error",
                     message: error.description,
-                    preferredStyle: UIAlertControllerStyle.Alert)
+                    preferredStyle: UIAlertControllerStyle.alert)
                 
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-                self.presentViewController(alertController, animated: true, completion: nil)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                self.present(alertController, animated: true, completion: nil)
         })
     }
     
-    @IBAction func signInButtonTouched(sender: UIButton) {
+    @IBAction func signInButtonTouched(_ sender: UIButton) {
         self.login()
     }
     
     //MARK: UITextFieldDelegate
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if textField == usernameField {
             passwordField.becomeFirstResponder()

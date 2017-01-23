@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07BC2018565A2018CB0DF046 /* Pods_zmonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D626480C139B76B783E7EC /* Pods_zmonUITests.framework */; };
 		0D22DFDB1C21C247007759B5 /* ZmonDashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22DFDA1C21C247007759B5 /* ZmonDashboardVC.swift */; };
 		0D22DFDE1C229E79007759B5 /* ZmonApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22DFDD1C229E79007759B5 /* ZmonApplication.swift */; };
 		0D22DFE11C229EF0007759B5 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22DFE01C229EF0007759B5 /* Team.swift */; };
@@ -46,6 +47,7 @@
 		0DFADF411C21B9F300C0B112 /* ZmonAlertStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADF401C21B9F300C0B112 /* ZmonAlertStatus.swift */; };
 		0DFADF431C21BA5D00C0B112 /* ZmonAlertsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFADF421C21BA5D00C0B112 /* ZmonAlertsService.swift */; };
 		65E52DFA7BCFDC545B598DB1 /* Pods_zmon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F8B5D03C5F913FF6BF138B /* Pods_zmon.framework */; };
+		96D4B86DA77D204D96D11D94 /* Pods_zmonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9D7A6D55DC5001ED8D71CD6 /* Pods_zmonTests.framework */; };
 		C7646E5C1CCDF90C0021F2F5 /* ZmonServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7646E5B1CCDF90C0021F2F5 /* ZmonServiceResponse.swift */; };
 		C7646E5E1CCE3A7A0021F2F5 /* RemoteAlertsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7646E5D1CCE3A7A0021F2F5 /* RemoteAlertsVC.swift */; };
 		C7CA73531CCA61E300B0D170 /* ObservedAlertsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CA73521CCA61E300B0D170 /* ObservedAlertsVC.swift */; };
@@ -114,8 +116,14 @@
 		0DFADF3E1C21B7C700C0B112 /* ZmonAlertDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonAlertDefinition.swift; path = client/domain/ZmonAlertDefinition.swift; sourceTree = "<group>"; };
 		0DFADF401C21B9F300C0B112 /* ZmonAlertStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonAlertStatus.swift; path = client/domain/ZmonAlertStatus.swift; sourceTree = "<group>"; };
 		0DFADF421C21BA5D00C0B112 /* ZmonAlertsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonAlertsService.swift; path = client/ZmonAlertsService.swift; sourceTree = "<group>"; };
+		1618241F9FD774DD7171DFF6 /* Pods-zmonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zmonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-zmonTests/Pods-zmonTests.release.xcconfig"; sourceTree = "<group>"; };
 		59F8B5D03C5F913FF6BF138B /* Pods_zmon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_zmon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AEB6E52BB7F6D431B9E3A93 /* Pods-zmon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zmon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zmon/Pods-zmon.debug.xcconfig"; sourceTree = "<group>"; };
+		5CD0BD3677994CEF7492698D /* Pods-zmonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zmonUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-zmonUITests/Pods-zmonUITests.release.xcconfig"; sourceTree = "<group>"; };
+		72D626480C139B76B783E7EC /* Pods_zmonUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_zmonUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B96EC27C30BB1B94DBA0A59 /* Pods-zmonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zmonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zmonTests/Pods-zmonTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8A8FFA24D6BC2021EF709FDC /* Pods-zmonUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zmonUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zmonUITests/Pods-zmonUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B9D7A6D55DC5001ED8D71CD6 /* Pods_zmonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_zmonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7646E5B1CCDF90C0021F2F5 /* ZmonServiceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZmonServiceResponse.swift; path = client/ZmonServiceResponse.swift; sourceTree = "<group>"; };
 		C7646E5D1CCE3A7A0021F2F5 /* RemoteAlertsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteAlertsVC.swift; path = controllers/RemoteAlertsVC.swift; sourceTree = "<group>"; };
 		C7CA73521CCA61E300B0D170 /* ObservedAlertsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObservedAlertsVC.swift; path = controllers/ObservedAlertsVC.swift; sourceTree = "<group>"; };
@@ -136,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96D4B86DA77D204D96D11D94 /* Pods_zmonTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07BC2018565A2018CB0DF046 /* Pods_zmonUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +314,8 @@
 			children = (
 				0DB58FFE1C24172A0030C776 /* QuartzCore.framework */,
 				59F8B5D03C5F913FF6BF138B /* Pods_zmon.framework */,
+				B9D7A6D55DC5001ED8D71CD6 /* Pods_zmonTests.framework */,
+				72D626480C139B76B783E7EC /* Pods_zmonUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -314,6 +326,10 @@
 				0DB590001C2418BA0030C776 /* SVProgressHUD.bundle */,
 				5AEB6E52BB7F6D431B9E3A93 /* Pods-zmon.debug.xcconfig */,
 				DBE641BB20ACBE641E541147 /* Pods-zmon.release.xcconfig */,
+				7B96EC27C30BB1B94DBA0A59 /* Pods-zmonTests.debug.xcconfig */,
+				1618241F9FD774DD7171DFF6 /* Pods-zmonTests.release.xcconfig */,
+				8A8FFA24D6BC2021EF709FDC /* Pods-zmonUITests.debug.xcconfig */,
+				5CD0BD3677994CEF7492698D /* Pods-zmonUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -325,12 +341,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D9A49AB1C202E5900026678 /* Build configuration list for PBXNativeTarget "zmon" */;
 			buildPhases = (
-				DF82537C404F8C3C8D5FF5DF /* Check Pods Manifest.lock */,
+				DF82537C404F8C3C8D5FF5DF /* [CP] Check Pods Manifest.lock */,
 				0D9A497F1C202E5800026678 /* Sources */,
 				0D9A49801C202E5800026678 /* Frameworks */,
 				0D9A49811C202E5800026678 /* Resources */,
-				F8570987C9567963F300CDEF /* Embed Pods Frameworks */,
-				02FE593C9F90AE01BD611424 /* Copy Pods Resources */,
+				F8570987C9567963F300CDEF /* [CP] Embed Pods Frameworks */,
+				02FE593C9F90AE01BD611424 /* [CP] Copy Pods Resources */,
 				C71EE1081CDC793D00A49495 /* ShellScript */,
 			);
 			buildRules = (
@@ -346,9 +362,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D9A49AE1C202E5900026678 /* Build configuration list for PBXNativeTarget "zmonTests" */;
 			buildPhases = (
+				E779E86DE93B465FBF3308F3 /* [CP] Check Pods Manifest.lock */,
 				0D9A49931C202E5900026678 /* Sources */,
 				0D9A49941C202E5900026678 /* Frameworks */,
 				0D9A49951C202E5900026678 /* Resources */,
+				A013DAF533657B527FB317C6 /* [CP] Embed Pods Frameworks */,
+				0D93DCE553195EBDCB5C7908 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -364,9 +383,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D9A49B11C202E5900026678 /* Build configuration list for PBXNativeTarget "zmonUITests" */;
 			buildPhases = (
+				06E7FDCADC4C9B4150C7CB83 /* [CP] Check Pods Manifest.lock */,
 				0D9A499E1C202E5900026678 /* Sources */,
 				0D9A499F1C202E5900026678 /* Frameworks */,
 				0D9A49A01C202E5900026678 /* Resources */,
+				B108009F62B8ADC816075707 /* [CP] Embed Pods Frameworks */,
+				9F6F3F3AF5142E4AAEEB80A4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -391,6 +413,7 @@
 					0D9A49821C202E5800026678 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = J67E9B6234;
+						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -399,10 +422,12 @@
 					};
 					0D9A49961C202E5900026678 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0820;
 						TestTargetID = 0D9A49821C202E5800026678;
 					};
 					0D9A49A11C202E5900026678 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0820;
 						TestTargetID = 0D9A49821C202E5800026678;
 					};
 				};
@@ -458,19 +483,94 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02FE593C9F90AE01BD611424 /* Copy Pods Resources */ = {
+		02FE593C9F90AE01BD611424 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-zmon/Pods-zmon-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		06E7FDCADC4C9B4150C7CB83 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		0D93DCE553195EBDCB5C7908 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-zmonTests/Pods-zmonTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F6F3F3AF5142E4AAEEB80A4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-zmonUITests/Pods-zmonUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A013DAF533657B527FB317C6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-zmonTests/Pods-zmonTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B108009F62B8ADC816075707 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-zmonUITests/Pods-zmonUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C71EE1081CDC793D00A49495 /* ShellScript */ = {
@@ -486,29 +586,44 @@
 			shellPath = /bin/sh;
 			shellScript = "\n#\n# Set the build number to the current git commit count.\n# If we're using the Dev scheme, then we'll suffix the build\n# number with the current branch name, to make collisions\n# far less likely across feature branches.\n# Based on: http://w3facility.info/question/how-do-i-force-xcode-to-rebuild-the-info-plist-file-in-my-project-every-time-i-build-the-project/\n#\n# Updated with dSYM handling from http://yellowfeather.co.uk/blog/auto-incrementing-build-number-in-xcode-revisited/\n#\n\ngit=`sh /etc/profile; which git`\nappBuild=`\"$git\" rev-list HEAD --count`\nif [ $CONFIGURATION = \"Debug\" ]; then\nbranchName=`\"$git\" rev-parse --abbrev-ref HEAD`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $appBuild-$branchName\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $appBuild-$branchName\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nelse\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $appBuild\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $appBuild\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\necho \"Incremented the build number ${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
 		};
-		DF82537C404F8C3C8D5FF5DF /* Check Pods Manifest.lock */ = {
+		DF82537C404F8C3C8D5FF5DF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		F8570987C9567963F300CDEF /* Embed Pods Frameworks */ = {
+		E779E86DE93B465FBF3308F3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F8570987C9567963F300CDEF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -717,6 +832,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = de.zalando.zmon.adhoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -735,41 +851,48 @@
 				PRODUCT_BUNDLE_IDENTIFIER = de.zalando.zmon.adhoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		0D9A49AF1C202E5900026678 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B96EC27C30BB1B94DBA0A59 /* Pods-zmonTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = zmonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.zalando.zmonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/zmon.app/zmon";
 			};
 			name = Debug;
 		};
 		0D9A49B01C202E5900026678 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1618241F9FD774DD7171DFF6 /* Pods-zmonTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = zmonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.zalando.zmonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/zmon.app/zmon";
 			};
 			name = Release;
 		};
 		0D9A49B21C202E5900026678 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A8FFA24D6BC2021EF709FDC /* Pods-zmonUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = zmonUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.zalando.zmonUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = zmon;
 				USES_XCTRUNNER = YES;
 			};
@@ -777,11 +900,13 @@
 		};
 		0D9A49B31C202E5900026678 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CD0BD3677994CEF7492698D /* Pods-zmonUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = zmonUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.zalando.zmonUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = zmon;
 				USES_XCTRUNNER = YES;
 			};

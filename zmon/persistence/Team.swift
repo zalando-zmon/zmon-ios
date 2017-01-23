@@ -15,12 +15,12 @@ class Team: NSObject, NSCoding {
     static let namePropertyName = "zmon.team.name"
     static let observedPropertyName = "zmon.team.observed"
     
-    private static var teamList: [Team] = {
+    fileprivate static var teamList: [Team] = {
         //If teamList was previously persisted on disk, fetch it, otherwise return an empty array
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let teamListData = defaults.objectForKey(Team.teamListPropertyName)
+        let defaults = UserDefaults.standard
+        let teamListData = defaults.object(forKey: Team.teamListPropertyName)
         if teamListData != nil {
-            let teamList = NSKeyedUnarchiver.unarchiveObjectWithData(teamListData as! NSData)
+            let teamList = NSKeyedUnarchiver.unarchiveObject(with: teamListData as! Data)
             return teamList as!  [Team]
         }
         
@@ -40,8 +40,8 @@ class Team: NSObject, NSCoding {
     
     //MARK: NSCoding
     required convenience init?(coder decoder: NSCoder) {
-        let observed = decoder.decodeBoolForKey(Team.observedPropertyName)
-        guard let name = decoder.decodeObjectForKey(Team.namePropertyName) as? String
+        let observed = decoder.decodeBool(forKey: Team.observedPropertyName)
+        guard let name = decoder.decodeObject(forKey: Team.namePropertyName) as? String
             else {
                 return nil;
         }
@@ -49,14 +49,14 @@ class Team: NSObject, NSCoding {
     }
     
     
-    func encodeWithCoder(coder: NSCoder) {
-        coder.encodeObject(self.name, forKey:Team.namePropertyName)
-        coder.encodeBool(self.observed, forKey: Team.observedPropertyName)
+    func encode(with coder: NSCoder) {
+        coder.encode(self.name, forKey:Team.namePropertyName)
+        coder.encode(self.observed, forKey: Team.observedPropertyName)
     }
     
     
     func save() {
-        let idx = Team.teamList.indexOf { (team: Team) -> Bool in
+        let idx = Team.teamList.index { (team: Team) -> Bool in
             return team.name == self.name
         }
         
@@ -64,7 +64,7 @@ class Team: NSObject, NSCoding {
             Team.teamList.append(self)
         }
         else {
-            Team.teamList.removeAtIndex(idx!)
+            Team.teamList.remove(at: idx!)
             Team.teamList.append(self)
         }
         
@@ -72,14 +72,14 @@ class Team: NSObject, NSCoding {
     }
     
     func persistObservedTeams() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let data = NSKeyedArchiver.archivedDataWithRootObject(Team.teamList)
+        let defaults = UserDefaults.standard
+        let data = NSKeyedArchiver.archivedData(withRootObject: Team.teamList)
         
-        defaults.setObject(data, forKey: Team.teamListPropertyName);
+        defaults.set(data, forKey: Team.teamListPropertyName);
     }
     
-    static func findByName(name name: String) -> Team? {
-        let idx = Team.teamList.indexOf { (team: Team) -> Bool in
+    static func findByName(_ name: String) -> Team? {
+        let idx = Team.teamList.index { (team: Team) -> Bool in
             return team.name == name
         }
         

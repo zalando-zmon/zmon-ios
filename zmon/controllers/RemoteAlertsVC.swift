@@ -19,7 +19,7 @@ class RemoteAlertsVC: BaseVC {
     var filteredRemoteAlerts: [ZmonServiceResponse.Alert] = []
     var observedAlerts: [ZmonServiceResponse.Alert] = []
     
-    var completionCallback: ((observedAlerts: [ZmonServiceResponse.Alert]) -> ())?
+    var completionCallback: ((_ observedAlerts: [ZmonServiceResponse.Alert]) -> ())?
     
     override func viewDidLoad() {
         
@@ -33,18 +33,18 @@ class RemoteAlertsVC: BaseVC {
         setupSearch()
     }
 
-    @IBAction func onDoneButtonTap(sender: UIBarButtonItem) {
-        completionCallback?(observedAlerts: observedAlerts)
+    @IBAction func onDoneButtonTap(_ sender: UIBarButtonItem) {
+        completionCallback?(observedAlerts)
     }
 
-    func subscribeToAlert(alert: ZmonServiceResponse.Alert, indexPath: NSIndexPath) {
+    func subscribeToAlert(_ alert: ZmonServiceResponse.Alert, indexPath: IndexPath) {
         
         SVProgressHUD.show()
         
         alertService.subscribeToAlertWithID("\(alert.id)", success: {
             
             self.observedAlerts.append(alert)
-            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
             
             SVProgressHUD.dismiss()
             
@@ -54,14 +54,14 @@ class RemoteAlertsVC: BaseVC {
         }
     }
     
-    func unsubscribeFromAlert(alert: ZmonServiceResponse.Alert, indexPath: NSIndexPath) {
+    func unsubscribeFromAlert(_ alert: ZmonServiceResponse.Alert, indexPath: IndexPath) {
         
         SVProgressHUD.show()
         
         alertService.unsubscribeFromAlertWithID("\(alert.id)", success: {
             
             self.removeObservedAlert(alert)
-            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
             
             SVProgressHUD.dismiss()
             
@@ -71,18 +71,18 @@ class RemoteAlertsVC: BaseVC {
         }
     }
 
-    func isAlertObserved(alert: ZmonServiceResponse.Alert) -> Bool {
+    func isAlertObserved(_ alert: ZmonServiceResponse.Alert) -> Bool {
         
-        let index = observedAlerts.indexOf { (observedAlert) -> Bool in
+        let index = observedAlerts.index { (observedAlert) -> Bool in
             return alert.id == observedAlert.id
         }
         
         return index != nil
     }
     
-    func removeObservedAlert(alert: ZmonServiceResponse.Alert) {
+    func removeObservedAlert(_ alert: ZmonServiceResponse.Alert) {
         
-        let index = observedAlerts.indexOf { (observedAlert) -> Bool in
+        let index = observedAlerts.index { (observedAlert) -> Bool in
             return alert.id == observedAlert.id
         }
         
@@ -91,29 +91,29 @@ class RemoteAlertsVC: BaseVC {
             return
         }
         
-        observedAlerts.removeAtIndex(existingIndex)
+        observedAlerts.remove(at: existingIndex)
     }
     
     func setupSearch() {
         searchController.searchResultsUpdater = self
-        searchController.searchBar.barStyle = .Black
-        searchController.searchBar.keyboardAppearance = .Dark
-        searchController.searchBar.tintColor = UIColor.whiteColor()
+        searchController.searchBar.barStyle = .black
+        searchController.searchBar.keyboardAppearance = .dark
+        searchController.searchBar.tintColor = UIColor.white
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
     }
     
     func isSearching() -> Bool {
-        return searchController.active && searchController.searchBar.text != ""
+        return searchController.isActive && searchController.searchBar.text != ""
     }
 
-    func filterRemoteAlertsForSearchText(searchText: String, scope: String = "All") {
+    func filterRemoteAlertsForSearchText(_ searchText: String, scope: String = "All") {
 
         filteredRemoteAlerts = remoteAlerts.filter { alert in
             
-            let nameMatches = alert.name.lowercaseString.containsString(searchText.lowercaseString)
-            let teamMatches = alert.team.lowercaseString.containsString(searchText.lowercaseString)
+            let nameMatches = alert.name.lowercased().contains(searchText.lowercased())
+            let teamMatches = alert.team.lowercased().contains(searchText.lowercased())
             let idMatches = String(alert.id).hasPrefix(searchText)
             
             return nameMatches || teamMatches || idMatches
@@ -125,20 +125,20 @@ class RemoteAlertsVC: BaseVC {
 
 extension RemoteAlertsVC: UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return isSearching() ? filteredRemoteAlerts.count : remoteAlerts.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("AlertCell", forIndexPath: indexPath)
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "AlertCell", for: indexPath)
         let alert = isSearching() ? filteredRemoteAlerts[indexPath.row] : remoteAlerts[indexPath.row];
         
-        cell.accessoryType = isAlertObserved(alert) ? .Checkmark : .None
+        cell.accessoryType = isAlertObserved(alert) ? .checkmark : .none
         cell.textLabel?.text = alert.name
         cell.detailTextLabel?.text = "\(alert.id), \(alert.team)"
         
@@ -148,7 +148,7 @@ extension RemoteAlertsVC: UITableViewDataSource {
 
 extension RemoteAlertsVC: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let alert = isSearching() ? filteredRemoteAlerts[indexPath.row] : remoteAlerts[indexPath.row];
         
@@ -163,7 +163,7 @@ extension RemoteAlertsVC: UITableViewDelegate {
 
 extension RemoteAlertsVC: UISearchResultsUpdating {
 
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         
         if let searchText = searchController.searchBar.text {
             filterRemoteAlertsForSearchText(searchText)

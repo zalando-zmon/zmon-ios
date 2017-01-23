@@ -8,11 +8,11 @@
 
 class OAuthAccessTokenService: NSObject {
     
-    func login(username username: String, password: String, success: (String)->(), failure: (NSError)->()) -> () {
+    func login(_ username: String, password: String, success: @escaping (String)->(), failure: @escaping (NSError)->()) -> () {
         let basicAuthEncoded = "\(username):\(password)".base64()
         let authHeader = "Basic \(basicAuthEncoded)"
         
-        ZmonService.sharedInstance.getAuthToken(path: "/access_token", parameters: [:], headers: ["Authorization" : authHeader], success: success, failure: failure)
+        ZmonService.sharedInstance.getAuthToken("/access_token", parameters: [:], headers: ["Authorization" : authHeader], success: success, failure: failure)
     }
     
 }

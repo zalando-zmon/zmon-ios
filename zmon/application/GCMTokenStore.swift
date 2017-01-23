@@ -10,19 +10,19 @@ import UIKit
 
 class GCMTokenStore: NSObject {
     
-    private struct Keys {
+    fileprivate struct Keys {
         static let deviceToken = "zmon.gcm.deviceToken"
     }
     
     static let sharedInstance: GCMTokenStore = GCMTokenStore()
-    private let userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    fileprivate let userDefaults: UserDefaults = UserDefaults.standard
     
-    func setDeviceToken(deviceToken: String) {
-        userDefaults.setObject(deviceToken, forKey: Keys.deviceToken)
+    func setDeviceToken(_ deviceToken: String) {
+        userDefaults.set(deviceToken, forKey: Keys.deviceToken)
     }
     
     func deviceToken() -> String? {
-        return userDefaults.objectForKey(Keys.deviceToken) as? String
+        return userDefaults.object(forKey: Keys.deviceToken) as? String
     }
     
 }

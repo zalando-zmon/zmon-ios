@@ -16,7 +16,7 @@ class NavigationVC: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationBar.barStyle = UIBarStyle.Black
+        self.navigationBar.barStyle = UIBarStyle.black
         self.navigationBar.tintColor = ZmonColor.textPrimary
         
         showZmonStatus()
@@ -29,21 +29,21 @@ class NavigationVC: UINavigationController {
     
     // MARK: - Navigation
     func showZmonStatus() {
-        if let zmonStatusVC: BaseVC = self.storyboard!.instantiateViewControllerWithIdentifier("ZmonStatusVC") as? BaseVC {
+        if let zmonStatusVC: BaseVC = self.storyboard!.instantiateViewController(withIdentifier: "ZmonStatusVC") as? BaseVC {
             zmonStatusVC.rootVC = self.rootVC
             self.setViewControllers([zmonStatusVC], animated: true)
         }
     }
     
     func showObservedTeams() {
-        if let observedTeamsVC: BaseVC = self.storyboard!.instantiateViewControllerWithIdentifier("ObservedTeamsVC") as? BaseVC {
+        if let observedTeamsVC: BaseVC = self.storyboard!.instantiateViewController(withIdentifier: "ObservedTeamsVC") as? BaseVC {
             observedTeamsVC.rootVC = self.rootVC
             self.setViewControllers([observedTeamsVC], animated: true)
         }
     }
     
     func showObservedAlerts() {
-        if let observedAlertsVC = self.storyboard?.instantiateViewControllerWithIdentifier("ObservedAlertsVC") as? ObservedAlertsVC {
+        if let observedAlertsVC = self.storyboard?.instantiateViewController(withIdentifier: "ObservedAlertsVC") as? ObservedAlertsVC {
             observedAlertsVC.rootVC = rootVC
             observedAlertsVC.fetchRemoteAlerts()
             setViewControllers([observedAlertsVC], animated: true)
@@ -51,7 +51,7 @@ class NavigationVC: UINavigationController {
     }
     
     func showZmonDashboard() {
-        if let zmonDashboardVC: BaseVC = self.storyboard!.instantiateViewControllerWithIdentifier("ZmonDashboardVC") as? BaseVC {
+        if let zmonDashboardVC: BaseVC = self.storyboard!.instantiateViewController(withIdentifier: "ZmonDashboardVC") as? BaseVC {
             zmonDashboardVC.rootVC = self.rootVC
             self.setViewControllers([zmonDashboardVC], animated: true)
         }
@@ -59,9 +59,9 @@ class NavigationVC: UINavigationController {
     
     func showSettings() {
     
-            let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
+            let settingsUrl = URL(string: UIApplicationOpenSettingsURLString)
             if let url = settingsUrl {
-                UIApplication.sharedApplication().openURL(url)
+                UIApplication.shared.openURL(url)
             
             }
    }
@@ -75,8 +75,8 @@ class NavigationVC: UINavigationController {
         
         //show the login view
         
-        let result = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC")
-        self.presentViewController(result!, animated: true, completion: nil)
+        let result = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC")
+        self.present(result!, animated: true, completion: nil)
         
         
     }

@@ -14,10 +14,10 @@ class ZmonService: NSObject {
     
     static let sharedInstance: ZmonService = ZmonService()
 
-    private let authEndpoint = "https://token.auth.zalando.com"
-    private let zmonEndpoint = "https://notification-service.zmon.zalan.do/api/v1/mobile"
+    fileprivate let authEndpoint = "https://token.auth.zalando.com"
+    fileprivate let zmonEndpoint = "https://notification-service.zmon.zalan.do/api/v1/mobile"
     
-    func getAuthToken(path path: String, parameters: [String:String], headers: [String:String], success: (String)->(), failure: (NSError)->()) {
+    func getAuthToken(_ path: String, parameters: [String:String], headers: [String:String], success: @escaping (String)->(), failure: @escaping (NSError)->()) {
         Alamofire
             .request(.GET, "\(authEndpoint)\(path)", parameters: parameters, encoding: .URL, headers: headers)
             .validate()
@@ -38,7 +38,7 @@ class ZmonService: NSObject {
             })
     }
     
-    func getString(path path: String, parameters: [String:String], headers: [String:String], success: (String)->()) {
+    func getString(_ path: String, parameters: [String:String], headers: [String:String], success: @escaping (String)->()) {
         Alamofire
             .request(.GET, "\(zmonEndpoint)\(path)", parameters: parameters, encoding: .URL, headers: headers)
             .responseString(completionHandler: { (response: Response<String, NSError>) -> Void in
@@ -48,7 +48,7 @@ class ZmonService: NSObject {
             })
     }
     
-    func getObject<T: EVObject>(path path: String, parameters: [String:String], headers: [String:String], success: (T)->()) {
+    func getObject<T: EVObject>(_ path: String, parameters: [String:String], headers: [String:String], success: @escaping (T)->()) {
         Alamofire
             .request(.GET, "\(zmonEndpoint)\(path)", parameters: parameters, encoding: .URL, headers: headers)
             .validate()
@@ -63,7 +63,7 @@ class ZmonService: NSObject {
         }
     }
     
-    func getObjectList<T: EVObject>(path path: String, parameters: [String:String], headers: [String:String], success: ([T])->()) {
+    func getObjectList<T: EVObject>(_ path: String, parameters: [String:String], headers: [String:String], success: @escaping ([T])->()) {
         Alamofire
             .request(.GET, "\(zmonEndpoint)\(path)", parameters: parameters, encoding: .URL, headers: headers)
             .responseArray { (response: Result<[T], NSError>) in
@@ -73,7 +73,7 @@ class ZmonService: NSObject {
         }
     }
     
-    func getStringList(path path: String, parameters: [String:String], headers: [String:String], success: ([String])->()) {
+    func getStringList(_ path: String, parameters: [String:String], headers: [String:String], success: @escaping ([String])->()) {
         Alamofire
             .request(.GET, "\(zmonEndpoint)\(path)", parameters: parameters, encoding: .URL, headers: headers)
             .responseJSON { (response: Response<AnyObject, NSError>) -> Void in
@@ -83,7 +83,7 @@ class ZmonService: NSObject {
         }
     }
     
-    func postJson(path path: String, parameters: [String:String], headers: [String:String], success: ()->(), failure: (NSError)->()) {
+    func postJson(_ path: String, parameters: [String:String], headers: [String:String], success: @escaping ()->(), failure: @escaping (NSError)->()) {
         Alamofire
             .request(.POST, "\(zmonEndpoint)\(path)", parameters: parameters, encoding: .JSON, headers: headers)
             .validate()

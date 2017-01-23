@@ -7,19 +7,32 @@
 //
 
 import UIKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 class ZmonDashboardVC: BaseVC, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var table: UITableView!
     
     let zmonAlertsService: ZmonAlertsService = ZmonAlertsService()
-    var dataUpdatesTimer: NSTimer?
+    var dataUpdatesTimer: Timer?
     var alertList: [ZmonAlertStatus] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "ZmonDashboard".localized
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style:.Plain, target: self, action: #selector(ZmonDashboardVC.toggleDataUpdates))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style:.plain, target: self, action: #selector(ZmonDashboardVC.toggleDataUpdates))
         
         self.table.dataSource = self
         self.table.delegate = self
@@ -28,7 +41,7 @@ class ZmonDashboardVC: BaseVC, UITableViewDataSource, UITableViewDelegate {
         self.startDataUpdates()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.stopDataUpdates()
     }
@@ -39,21 +52,21 @@ class ZmonDashboardVC: BaseVC, UITableViewDataSource, UITableViewDelegate {
     }
     
     // MARK:- UITableViewDataSource
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.alertList.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let alert: ZmonAlertStatus = self.alertList[indexPath.row]
         
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("AlertCell")!
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "AlertCell")!
         cell.textLabel!.text = alert.message;
-        setBackgroundColor(cell: cell, priority: alert.alertDefinition?.priority ?? 0)
+        setBackgroundColor(cell, priority: alert.alertDefinition?.priority ?? 0)
         
         return cell
     }
     
-    private func setBackgroundColor(cell cell: UITableViewCell, priority: Int) {
+    fileprivate func setBackgroundColor(_ cell: UITableViewCell, priority: Int) {
         switch (priority) {
         case 1:
             cell.backgroundColor = ZmonColor.alertCritical
@@ -79,17 +92,17 @@ class ZmonDashboardVC: BaseVC, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    private func startDataUpdates(){
+    fileprivate func startDataUpdates(){
         stopDataUpdates()
         log.debug("Starting ZMON Dashboard updates")
-        self.dataUpdatesTimer = NSTimer.scheduledTimerWithTimeInterval(5.0,
+        self.dataUpdatesTimer = Timer.scheduledTimer(timeInterval: 5.0,
             target: self,
             selector: #selector(ZmonDashboardVC.updateZmonDashboard),
             userInfo: nil,
             repeats: true)
     }
     
-    private func stopDataUpdates(){
+    fileprivate func stopDataUpdates(){
         if let timer = self.dataUpdatesTimer {
             log.debug("Stopping ZMON Dashboard updates")
             timer.invalidate()
@@ -98,11 +111,11 @@ class ZmonDashboardVC: BaseVC, UITableViewDataSource, UITableViewDelegate {
     }
     
     func updateZmonDashboard() {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
             let teamList: [String] = Team.allObservedTeamNames()
-            self.zmonAlertsService.listByTeam(teamName: teamList.joinWithSeparator(","), success: { (alerts: [ZmonAlertStatus]) -> () in
+            self.zmonAlertsService.listByTeam(teamList.joined(separator: ","), success: { (alerts: [ZmonAlertStatus]) -> () in
                 self.alertList = alerts
-                self.alertList.sortInPlace({ (a: ZmonAlertStatus, b: ZmonAlertStatus) -> Bool in
+                self.alertList.sort(by: { (a: ZmonAlertStatus, b: ZmonAlertStatus) -> Bool in
                     return a.alertDefinition?.priority < b.alertDefinition?.priority
                 })
                 self.table.reloadData()

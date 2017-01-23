@@ -73,12 +73,12 @@ class ObservedAlertsVC: BaseVC {
     
     func configureNavigationItem() {
         navigationItem.title = "ObservedAlerts".localized
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(onAddButtonTap))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddButtonTap))
     }
 
     func onAddButtonTap() {
         
-        let remoteAlertsNavigationVC = storyboard?.instantiateViewControllerWithIdentifier("RemoteAlertsNavigationVC") as! UINavigationController
+        let remoteAlertsNavigationVC = storyboard?.instantiateViewController(withIdentifier: "RemoteAlertsNavigationVC") as! UINavigationController
         let remoteAlertsVC = remoteAlertsNavigationVC.topViewController as! RemoteAlertsVC
         
         remoteAlertsVC.observedAlerts = observedAlerts
@@ -89,26 +89,26 @@ class ObservedAlertsVC: BaseVC {
             self.observedAlerts = observedAlerts
             self.tableView.reloadData()
             
-            remoteAlertsNavigationVC.dismissViewControllerAnimated(true, completion: nil)
+            remoteAlertsNavigationVC.dismiss(animated: true, completion: nil)
         }
         
-        presentViewController(remoteAlertsNavigationVC, animated: true, completion: nil)
+        present(remoteAlertsNavigationVC, animated: true, completion: nil)
     }
 }
 
 extension ObservedAlertsVC: UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return observedAlerts.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("AlertCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AlertCell", for: indexPath)
         let alert = observedAlerts[indexPath.row];
 
         cell.textLabel?.text = alert.name
@@ -120,11 +120,11 @@ extension ObservedAlertsVC: UITableViewDataSource {
 
 extension ObservedAlertsVC: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         let alert = observedAlerts[indexPath.row];
         
@@ -132,8 +132,8 @@ extension ObservedAlertsVC: UITableViewDelegate {
         
         alertService.unsubscribeFromAlertWithID("\(alert.id)", success: {
             
-            self.observedAlerts.removeAtIndex(indexPath.row)
-            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            self.observedAlerts.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
             
             SVProgressHUD.dismiss()
             
@@ -143,7 +143,7 @@ extension ObservedAlertsVC: UITableViewDelegate {
         }
     }
     
-    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "AlertUnsubscribe".localized
     }
 }
