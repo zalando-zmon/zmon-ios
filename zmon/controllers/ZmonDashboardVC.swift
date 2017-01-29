@@ -111,7 +111,7 @@ class ZmonDashboardVC: BaseVC, UITableViewDataSource, UITableViewDelegate {
     }
     
     func updateZmonDashboard() {
-        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
+        DispatchQueue.global().async {
             let teamList: [String] = Team.allObservedTeamNames()
             self.zmonAlertsService.listByTeam(teamList.joined(separator: ","), success: { (alerts: [ZmonAlertStatus]) -> () in
                 self.alertList = alerts

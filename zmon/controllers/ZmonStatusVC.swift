@@ -69,7 +69,7 @@ class ZmonStatusVC: BaseVC {
     }
     
     func updateZmonStatus() {
-        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
+        DispatchQueue.global().async {
             self.zmonStatusService.status({ (zmonStatus: ZmonStatus) -> () in
                 let queueText = "\(zmonStatus.queueSize) \("InQueue".localized)"
                 if (zmonStatus.queueSize > 1000) {
