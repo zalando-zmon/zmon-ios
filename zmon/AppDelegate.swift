@@ -18,7 +18,7 @@ struct ZmonColor {
     static let textPrimary = UIColor(netHex: 0xffffff)
 }
 
-let log = XCGLogger.defaultInstance()
+let log = XCGLogger.default
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GCMReceiverDelegate {
@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        log.setup(.Debug, showThreadName: true, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil, fileLogLevel: .Debug)
+        log.setup(level: .debug, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil, fileLevel: .debug)
         
         SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
@@ -117,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
         GCMService.sharedInstance().connect(handler: {
             (error) -> Void in
             if error != nil {
-                log.error("Could not connect to GCM: \(error.localizedDescription)")
+                log.error("Could not connect to GCM: \(error?.localizedDescription)")
             } else {
                 self.connectedToGCM = true
                 log.info("Connected to GCM")
@@ -183,8 +183,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
         GGLInstanceID.sharedInstance().token(withAuthorizedEntity: gcmSenderID, scope: kGGLInstanceIDScopeGCM, options: registrationOptions, handler: registrationHandler)
     }
     
-    func registrationHandler(_ registrationToken: String!, error: NSError!) {
-        if (registrationToken != nil) {
+    func registrationHandler(_ registrationToken: String?, error: Error?) {
+        if let registrationToken = registrationToken {
             self.registrationToken = registrationToken
             GCMTokenStore.sharedInstance.setDeviceToken(registrationToken)
             log.info("Registration Token: \(registrationToken)")
@@ -193,8 +193,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
             NotificationCenter.default.post(
                 name: Notification.Name(rawValue: self.registrationKey), object: nil, userInfo: userInfo)
         } else {
-            log.error("Registration to GCM failed with error: \(error.localizedDescription)")
-            let userInfo = ["error": error.localizedDescription]
+            let errorDescription = (error as? NSError)?.localizedDescription ?? ""
+            log.error("Registration to GCM failed with error: \(errorDescription)")
+            let userInfo = ["error": errorDescription]
             NotificationCenter.default.post(
                 name: Notification.Name(rawValue: self.registrationKey), object: nil, userInfo: userInfo)
         }
@@ -206,7 +207,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
         if(registrationToken != nil && connectedToGCM) {
             GCMPubSub.sharedInstance().subscribe(withToken: self.registrationToken, topic: subscriptionTopic,
                 options: nil, handler: {(error) -> Void in
-                    if (error != nil) {
+                    if let error = error as? NSError {
                         // Treat the "already subscribed" error more gently
                         if error.code == 3001 {
                             log.info("Already subscribed to \(self.subscriptionTopic)")
@@ -221,7 +222,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
         }
     }
     
-    func willSendDataMessage(withID messageID: String!, error: NSError!) {
+    func willSendDataMessage(withID messageID: String!, error: Error!) {
         if (error != nil) {
             // Failed to send the message.
         } else {
