@@ -75,20 +75,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
             let zmonstatusservice = ZmonStatusService()
             zmonstatusservice.status({ (status) in
                 // Show RootVC
-                if let rootVC: UIViewController = self.storyBoard.instantiateViewController(withIdentifier: "RootVC") {
-                    let vc = UIApplication.shared.keyWindow?.rootViewController
-                    vc?.present(rootVC, animated: true, completion: nil)
-                }
-
                 
-            })
+                let rootVC = self.storyBoard.instantiateViewController(withIdentifier: "RootVC")
+                let vc = UIApplication.shared.keyWindow?.rootViewController
+                vc?.present(rootVC, animated: true, completion: nil)
 
-            
+            })
         }
-        
-        
-        
-        
+
         UIApplication.shared.statusBarStyle = .lightContent
         
         return true
