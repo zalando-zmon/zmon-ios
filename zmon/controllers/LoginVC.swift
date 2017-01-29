@@ -34,11 +34,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             self.passwordField.text = credentials.password
         }
         
-        if let saveCredentials: Bool = CredentialsStore.sharedInstance.saveCredentials() {
-            self.saveCredentialsSwitch.isOn = saveCredentials
-        }
-        
-        
+        self.saveCredentialsSwitch.isOn = CredentialsStore.sharedInstance.saveCredentials()
     }
     
     
