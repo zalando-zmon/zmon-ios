@@ -14,47 +14,47 @@ class ZmonService: NSObject {
     
     static let sharedInstance: ZmonService = ZmonService()
 
-    private let authEndpoint = "https://token.auth.zalando.com"
-    private let zmonEndpoint = "https://notification-service.zmon.zalan.do/api/v1/mobile"
+    fileprivate let authEndpoint = "https://token.auth.zalando.com"
+    fileprivate let zmonEndpoint = "https://notification-service.zmon.zalan.do/api/v1/mobile"
     
-    func getAuthToken(path path: String, parameters: [String:String], headers: [String:String], success: (String)->(), failure: (NSError)->()) {
+    func getAuthToken(_ path: String, parameters: [String:String], headers: [String:String], success: @escaping (String)->(), failure: @escaping (NSError)->()) {
         Alamofire
-            .request(.GET, "\(authEndpoint)\(path)", parameters: parameters, encoding: .URL, headers: headers)
+            .request(URL(string: "\(authEndpoint)\(path)")!, method: .get, parameters: parameters, encoding: URLEncoding(), headers: headers)
             .validate()
-            .responseString(completionHandler: { (response: Response<String, NSError>) -> Void in
+            .responseString(completionHandler: { (response) -> Void in
                 switch response.result {
-                case .Success:
-                    let token: String = response.result.value!
+                case .success(let value):
+                    let token = value
                     log.debug("Authorization successfull, returned token: \(token)")
-                    
+
                     //STRIP \n which is curiously appended to the end of token
-                    success(token.substringToIndex(token.endIndex.advancedBy(-1)))
+                    success(token.substring(to: token.index(before: token.endIndex)))
                     break
-                case .Failure(let error):
-                    log.error(error.description)
-                    failure(error)
+                case .failure(let error):
+                    log.error((error as NSError).description)
+                    failure(error as NSError)
                     break
                 }
             })
     }
     
-    func getString(path path: String, parameters: [String:String], headers: [String:String], success: (String)->()) {
+    func getString(_ path: String, parameters: [String:String], headers: [String:String], success: @escaping (String)->()) {
         Alamofire
-            .request(.GET, "\(zmonEndpoint)\(path)", parameters: parameters, encoding: .URL, headers: headers)
-            .responseString(completionHandler: { (response: Response<String, NSError>) -> Void in
-                if let string = response.result.value {
+            .request(URL(string: "\(zmonEndpoint)\(path)")!, method: .get, parameters: parameters, encoding: URLEncoding(), headers: headers)
+            .responseString(completionHandler: { (response) -> Void in
+                if case .success(let string) = response.result {
                     success(string)
                 }
             })
     }
     
-    func getObject<T: EVObject>(path path: String, parameters: [String:String], headers: [String:String], success: (T)->()) {
+    func getObject<T: EVObject>(_ path: String, parameters: [String:String], headers: [String:String], success: @escaping (T)->()) {
         Alamofire
-            .request(.GET, "\(zmonEndpoint)\(path)", parameters: parameters, encoding: .URL, headers: headers)
+            .request(URL(string: "\(zmonEndpoint)\(path)")!, method: .get, parameters: parameters, encoding: URLEncoding(), headers: headers)
             .validate()
-            .responseObject { (response: Result<T, NSError>) in
-                if response.isSuccess {
-                    success(response.value!)
+            .responseObject { (response: DataResponse<T>) in
+                if case .success(let object) = response.result {
+                    success(object)
                 }
                 else {
                     log.error(response.debugDescription)
@@ -63,37 +63,37 @@ class ZmonService: NSObject {
         }
     }
     
-    func getObjectList<T: EVObject>(path path: String, parameters: [String:String], headers: [String:String], success: ([T])->()) {
+    func getObjectList<T: EVObject>(_ path: String, parameters: [String:String], headers: [String:String], success: @escaping ([T])->()) {
         Alamofire
-            .request(.GET, "\(zmonEndpoint)\(path)", parameters: parameters, encoding: .URL, headers: headers)
-            .responseArray { (response: Result<[T], NSError>) in
-                if let array = response.value {
+            .request(URL(string: "\(zmonEndpoint)\(path)")!, method: .get, parameters: parameters, encoding: URLEncoding(), headers: headers)
+            .responseArray { (response: DataResponse<[T]>) in
+                if case .success(let array) = response.result {
                     success(array)
                 }
         }
     }
     
-    func getStringList(path path: String, parameters: [String:String], headers: [String:String], success: ([String])->()) {
+    func getStringList(_ path: String, parameters: [String:String], headers: [String:String], success: @escaping ([String])->()) {
         Alamofire
-            .request(.GET, "\(zmonEndpoint)\(path)", parameters: parameters, encoding: .URL, headers: headers)
-            .responseJSON { (response: Response<AnyObject, NSError>) -> Void in
-                if let stringList = response.result.value as? [String] {
-                    success(stringList)
+            .request(URL(string: "\(zmonEndpoint)\(path)")!, method: .get, parameters: parameters, encoding: URLEncoding(), headers: headers)
+            .responseJSON { (response) -> Void in
+                if case .success(let object) = response.result {
+                    success(object as! [String])
                 }
         }
     }
     
-    func postJson(path path: String, parameters: [String:String], headers: [String:String], success: ()->(), failure: (NSError)->()) {
+    func postJson(_ path: String, parameters: [String:String], headers: [String:String], success: @escaping ()->(), failure: @escaping (NSError)->()) {
         Alamofire
-            .request(.POST, "\(zmonEndpoint)\(path)", parameters: parameters, encoding: .JSON, headers: headers)
+            .request(URL(string: "\(zmonEndpoint)\(path)")!, method: .get, parameters: parameters, encoding: JSONEncoding(), headers: headers)
             .validate()
-            .response { (request, response, data, error) -> Void in
-                if error == nil {
-                    success()
+            .response { (response) -> Void in
+                if let error = response.error as? NSError {
+                    log.error(error.debugDescription)
+                    failure(error)
                 }
                 else {
-                    log.error(response.debugDescription)
-                    failure(error!)
+                    success()
                 }
         }
     }

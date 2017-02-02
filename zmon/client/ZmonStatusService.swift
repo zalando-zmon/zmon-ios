@@ -8,8 +8,8 @@
 
 class ZmonStatusService: NSObject {
     
-    func status(success success: (ZmonStatus)->()) {
+    func status(_ success: @escaping (ZmonStatus)->()) {
         let headers = CredentialsStore.sharedInstance.accessTokenHeader()
-        ZmonService.sharedInstance.getObject(path: "/status", parameters: [:], headers: headers, success: success)
+        ZmonService.sharedInstance.getObject("/status", parameters: [:], headers: headers, success: success)
     }
 }

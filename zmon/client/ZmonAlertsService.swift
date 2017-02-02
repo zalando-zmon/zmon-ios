@@ -10,133 +10,131 @@ import Alamofire
 
 class ZmonAlertsService: NSObject {
 
-    func list(success success: ([ZmonAlertStatus]) -> ()) {
-        ZmonService.sharedInstance.getObjectList(path: "/active-alerts", parameters: [:], headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success)
+    func list(_ success: @escaping ([ZmonAlertStatus]) -> ()) {
+        ZmonService.sharedInstance.getObjectList("/active-alerts", parameters: [:], headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success)
     }
     
-    func listByTeam(teamName teamName: String, success: ([ZmonAlertStatus]) -> ()) {
+    func listByTeam(_ teamName: String, success: @escaping ([ZmonAlertStatus]) -> ()) {
         log.debug("Listing alerts for teams with query ?team=\(teamName)")
-        ZmonService.sharedInstance.getObjectList(path: "/active-alerts", parameters: ["team": teamName], headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success)
+        ZmonService.sharedInstance.getObjectList("/active-alerts", parameters: ["team": teamName], headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success)
     }
     
-    func listRemoteObservableAlertsWithCompletion(completion: (alerts: [ZmonServiceResponse.Alert]?) -> ()) {
+    func listRemoteObservableAlertsWithCompletion(_ completion: @escaping (_ alerts: [ZmonServiceResponse.Alert]?) -> ()) {
         
-        let path = "https://notification-service.zmon.zalan.do/api/v1/mobile/alert"
+        let url = URL(string: "https://notification-service.zmon.zalan.do/api/v1/mobile/alert")!
         let headers = CredentialsStore.sharedInstance.accessTokenHeader()
-        
-        Alamofire.request(.GET, path, parameters: [:], encoding: .URL, headers: headers).responseJSON { response in
+
+        Alamofire.request(url, method: .get, parameters: [:], encoding: URLEncoding(), headers: headers).responseJSON { response in
             
             guard let rootJsonObject = response.result.value else {
                 log.error("Failed to fetch remote observable alerts with error: \(response.result.error)")
-                completion(alerts: nil)
+                completion(nil)
                 return
             }
             
             guard let jsonArray = rootJsonObject as? NSArray else {
                 log.error("Error while parsing remote alerts data: invalid JSON object found where NSArray was expected")
-                completion(alerts: nil)
+                completion(nil)
                 return
             }
             
             let parsedAlerts = ZmonServiceResponse.parseAlertCollectionWithJSONArray(jsonArray)
-            completion(alerts: parsedAlerts)
+            completion(parsedAlerts)
         }
     }
     
-    func listUserObservedAlertsWithCompletion(completion: (alertIDs: [Int]?) -> ()) {
+    func listUserObservedAlertsWithCompletion(_ completion: @escaping (_ alertIDs: [Int]?) -> ()) {
         
-        let path = "https://notification-service.zmon.zalan.do/api/v1/user/subscriptions"
+        let url = URL(string: "https://notification-service.zmon.zalan.do/api/v1/user/subscriptions")!
+        
         let headers = CredentialsStore.sharedInstance.accessTokenHeader()
         
-        Alamofire.request(.GET, path, parameters: [:], encoding: .URL, headers: headers).responseString { response in
+        Alamofire.request(url, method: .get, parameters: [:], encoding: URLEncoding(), headers: headers).responseString { response in
             
             if let responseString = response.result.value {
                 
                 // The response is in format of "[123,456,789,...]"
 
-                let skipChars = NSMutableCharacterSet(charactersInString: "[],")
-                skipChars.formUnionWithCharacterSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                let skipChars = NSMutableCharacterSet(charactersIn: "[],")
+                skipChars.formUnion(with: NSCharacterSet.whitespacesAndNewlines)
 
-                let scanner = NSScanner(string: responseString)
-                scanner.charactersToBeSkipped = skipChars
+                let scanner = Scanner(string: responseString)
+                scanner.charactersToBeSkipped = skipChars as CharacterSet
                 
                 var result: [Int] = []
                 var scannedID:Int = 0
                 
-                while scanner.scanInteger(&scannedID) {
+                while scanner.scanInt(&scannedID) {
                     result.append(scannedID)
                 }
                 
-                completion(alertIDs: result)
+                completion(result)
 
             } else {
                 log.error("Failed to list user observed alerts with error: \(response.result.error?.localizedDescription)")
-                completion(alertIDs: nil)
+                completion(nil)
             }
         }
     }
     
-    func registerDevice(deviceSubscription deviceSubscription: DeviceSubscription, success: () -> (), failure: (NSError) -> ()) {
+    func registerDevice(_ deviceSubscription: DeviceSubscription, success: @escaping () -> (), failure: @escaping (NSError) -> ()) {
         let parameters: [String:String] = deviceSubscription.toDictionary() as! [String:String]
         
-        ZmonService.sharedInstance.postJson(path: "/device", parameters: parameters, headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success, failure: failure)
+        ZmonService.sharedInstance.postJson("/device", parameters: parameters, headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success, failure: failure)
     }
     
-    func registerDeviceWithToken(token: String, success: () -> (), failure: (NSError) -> ()) {
+    func registerDeviceWithToken(_ token: String, success: @escaping () -> (), failure: @escaping (NSError) -> ()) {
         
         // TODO: We cannot use the ZmonSerivce class as it uses /mobile endpoint for all calls. This is why the path is explicit. Better solution needed...
         
-        let path = "https://notification-service.zmon.zalan.do/api/v1/device"
+        let url = URL(string: "https://notification-service.zmon.zalan.do/api/v1/device")!
         
         Alamofire
-            .request(.POST, path, parameters: ["registration_token":token], encoding: .JSON, headers: CredentialsStore.sharedInstance.accessTokenHeader())
+            .request(url, method: .post, parameters: ["registration_token":token], encoding: JSONEncoding(), headers: CredentialsStore.sharedInstance.accessTokenHeader())
             .validate()
-            .response { (request, response, data, error) -> Void in
-                if error == nil {
+            .response { (responseData) -> Void in
+                if let error = responseData.error as? NSError {
+                    log.error(responseData.response.debugDescription)
+                    failure(error)
+                } else {
                     success()
-                }
-                else {
-                    log.error(response.debugDescription)
-                    failure(error!)
                 }
         }
     }
     
-    func subscribeToAlertWithID(alertID: String, success: ()->(), failure: (NSError)->()) {
+    func subscribeToAlertWithID(_ alertID: String, success: @escaping ()->(), failure: @escaping (NSError)->()) {
         
-        let path = "https://notification-service.zmon.zalan.do/api/v1/subscription"
+        let url = URL(string: "https://notification-service.zmon.zalan.do/api/v1/subscription")!
         let parameters = ["alert_id":alertID]
         let headers = CredentialsStore.sharedInstance.accessTokenHeader()
         
         Alamofire
-            .request(.POST, path, parameters: parameters, encoding: .JSON, headers: headers)
+            .request(url, method: .post, parameters: parameters, encoding: JSONEncoding(), headers: headers)
             .validate()
-            .response { (request, response, data, error) -> Void in
-                if error == nil {
+            .response { (responseData) -> Void in
+                if let error = responseData.error as? NSError {
+                    log.error(responseData.response.debugDescription)
+                    failure(error)
+                } else {
                     success()
-                }
-                else {
-                    log.error(response.debugDescription)
-                    failure(error!)
                 }
         }
     }
     
-    func unsubscribeFromAlertWithID(alertID: String, success: () -> (), failure: (NSError) -> ()) {
+    func unsubscribeFromAlertWithID(_ alertID: String, success: @escaping () -> (), failure: @escaping (NSError) -> ()) {
         
-        let path = "https://notification-service.zmon.zalan.do/api/v1/subscription/\(alertID)"
+        let url = URL(string: "https://notification-service.zmon.zalan.do/api/v1/subscription/\(alertID)")!
         let headers = CredentialsStore.sharedInstance.accessTokenHeader()
 
         Alamofire
-            .request(.DELETE, path, parameters: [:], encoding: .URL, headers: headers)
+            .request(url, method: .delete, parameters: [:], encoding: URLEncoding(), headers: headers)
             .validate()
-            .response { (request, response, data, error) -> Void in
-                if error == nil {
+            .response { (responseData) -> Void in
+                if let error = responseData.error as? NSError {
+                    log.error(responseData.response.debugDescription)
+                    failure(error)
+                } else {
                     success()
-                }
-                else {
-                    log.error(response.debugDescription)
-                    failure(error!)
                 }
         }
     }

@@ -39,14 +39,14 @@ class SideMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     // MARK: - UITableViewDataSource
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.menuItems.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let menuRecord: [String:String] = menuItems[indexPath.row]
         
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("SideMenuCell")!
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "SideMenuCell")!
         cell.textLabel!.text = menuRecord["name"]!
         //check if image is defined and not nil, insert if true
         if menuRecord["image"] != nil{
@@ -57,14 +57,14 @@ class SideMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     // MARK: - UITableViewDelegate
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let menuRecord: [String:String] = menuItems[indexPath.row]
 
         if let action = menuRecord["action"] {
             if let rootVC = self.rootVC {
                 
                 let control: UIControl = UIControl()
-                control.sendAction(Selector(action), to: rootVC.navigationVC, forEvent: nil)
+                control.sendAction(Selector(action), to: rootVC.navigationVC, for: nil)
                 rootVC.hideSideMenu()
             }
         }

@@ -17,27 +17,27 @@ struct ZmonServiceResponse {
         let responsibleTeam: String
     }
     
-    static func parseAlertWithJsonNDictionary(jsonDictionary: NSDictionary) -> Alert? {
+    static func parseAlertWithJsonNDictionary(_ jsonDictionary: NSDictionary) -> Alert? {
         
-        guard let id = jsonDictionary.objectForKey("id") as? Int else {
+        guard let id = jsonDictionary.object(forKey: "id") as? Int else {
 
             log.error("Failed to parse Alert JSON dictionary: missing Int value for 'id' key")
             return nil
         }
 
-        guard let name = jsonDictionary.objectForKey("name") as? String else {
+        guard let name = jsonDictionary.object(forKey: "name") as? String else {
 
             log.error("Failed to parse Alert JSON dictionary: missing String value for 'name' key")
             return nil
         }
 
-        guard let team = jsonDictionary.objectForKey("team") as? String else {
+        guard let team = jsonDictionary.object(forKey: "team") as? String else {
 
             log.error("Failed to parse Alert JSON dictionary: missing String value for 'team' key")
             return nil
         }
 
-        guard let responsibleTeam = jsonDictionary.objectForKey("responsible_team") as? String else {
+        guard let responsibleTeam = jsonDictionary.object(forKey: "responsible_team") as? String else {
 
             log.error("Failed to parse Alert JSON dictionary: missing String value for 'responsible_team' key")
             return nil
@@ -46,7 +46,7 @@ struct ZmonServiceResponse {
         return Alert(id: id, name: name, team: team, responsibleTeam: responsibleTeam)
     }
     
-    static func parseAlertCollectionWithJSONArray(jsonArray: NSArray) -> [Alert] {
+    static func parseAlertCollectionWithJSONArray(_ jsonArray: NSArray) -> [Alert] {
         
         var allAlerts = [Alert]()
         

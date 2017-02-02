@@ -15,20 +15,20 @@ class ZmonStatusVC: BaseVC {
     @IBOutlet weak var workersLabel: UILabel!
 
     let zmonStatusService: ZmonStatusService = ZmonStatusService()
-    var dataUpdatesTimer: NSTimer?
+    var dataUpdatesTimer: Timer?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = "ZmonStatus".localized
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style:.Plain, target: self, action: #selector(ZmonStatusVC.toggleDataUpdates))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style:.plain, target: self, action: #selector(ZmonStatusVC.toggleDataUpdates))
         
         self.updateZmonStatus()
         self.startDataUpdates()
     }
 
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.stopDataUpdates()
     }
@@ -50,17 +50,17 @@ class ZmonStatusVC: BaseVC {
         }
     }
     
-    private func startDataUpdates(){
+    fileprivate func startDataUpdates(){
         stopDataUpdates()
         log.debug("Starting ZMON Status updates")
-        self.dataUpdatesTimer = NSTimer.scheduledTimerWithTimeInterval(2.0,
+        self.dataUpdatesTimer = Timer.scheduledTimer(timeInterval: 2.0,
             target: self,
             selector: #selector(ZmonStatusVC.updateZmonStatus),
             userInfo: nil,
             repeats: true)
     }
     
-    private func stopDataUpdates(){
+    fileprivate func stopDataUpdates(){
         if let timer = self.dataUpdatesTimer {
             log.debug("Stopping ZMON Status updates")
             timer.invalidate()
@@ -69,23 +69,23 @@ class ZmonStatusVC: BaseVC {
     }
     
     func updateZmonStatus() {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            self.zmonStatusService.status(success: { (zmonStatus: ZmonStatus) -> () in
+        DispatchQueue.global().async {
+            self.zmonStatusService.status({ (zmonStatus: ZmonStatus) -> () in
                 let queueText = "\(zmonStatus.queueSize) \("InQueue".localized)"
                 if (zmonStatus.queueSize > 1000) {
-                    self.queueLabel.attributedText = queueText.setColor(stringPart: String(zmonStatus.queueSize), color: UIColor.redColor())
+                    self.queueLabel.attributedText = queueText.setColor(String(zmonStatus.queueSize), color: UIColor.red)
                 }
                 else {
-                    self.queueLabel.attributedText = queueText.setColor(stringPart: String(zmonStatus.queueSize), color: UIColor.greenColor())
+                    self.queueLabel.attributedText = queueText.setColor(String(zmonStatus.queueSize), color: UIColor.green)
                 }
                 
                 let workers = "\(zmonStatus.workersActive)/\(zmonStatus.workersTotal)"
                 let workersText = "\(workers) \("ActiveWorkers".localized)"
                 if (zmonStatus.workersActive < zmonStatus.workersTotal) {
-                    self.workersLabel.attributedText = workersText.setColor(stringPart: workers, color: UIColor.redColor())
+                    self.workersLabel.attributedText = workersText.setColor(workers, color: UIColor.red)
                 }
                 else {
-                    self.workersLabel.attributedText = workersText.setColor(stringPart: workers, color: UIColor.greenColor())
+                    self.workersLabel.attributedText = workersText.setColor(workers, color: UIColor.green)
                 }
             })
         }

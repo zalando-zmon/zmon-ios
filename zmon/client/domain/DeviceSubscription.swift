@@ -12,7 +12,7 @@ class DeviceSubscription: EVObject {
     
     var registrationToken: String = ""
     
-    static func withRegistrationToken(registrationToken registrationToken: String) -> DeviceSubscription {
+    static func withRegistrationToken(_ registrationToken: String) -> DeviceSubscription {
         let deviceSubscription = DeviceSubscription()
         
         deviceSubscription.registrationToken = registrationToken

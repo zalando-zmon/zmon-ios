@@ -8,8 +8,8 @@
 
 class ZmonTeamService: NSObject {
     
-    func listTeams(success success: ([String])->()) {
-        ZmonService.sharedInstance.getStringList(path: "/all-teams", parameters: [:], headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success)
+    func listTeams(_ success: @escaping ([String])->()) {
+        ZmonService.sharedInstance.getStringList("/all-teams", parameters: [:], headers: CredentialsStore.sharedInstance.accessTokenHeader(), success: success)
     }
 
 }

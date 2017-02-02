@@ -10,7 +10,7 @@ import UIKit
 
 class CredentialsStore: NSObject {
     
-    private struct Keys {
+    fileprivate struct Keys {
         static let username = "zmon.credentials.username"
         static let password = "zmon.credentials.password"
         static let saveCredentials = "zmon.credentials.save"
@@ -18,17 +18,17 @@ class CredentialsStore: NSObject {
     }
     
     static let sharedInstance: CredentialsStore = CredentialsStore()
-    private let userDefaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    private var userToken: String = ""
+    fileprivate let userDefaults: UserDefaults = UserDefaults.standard
+    fileprivate var userToken: String = ""
     
-    func setCredentials(credentials credentials: Credentials) {
-        userDefaults.setObject(credentials.username, forKey: Keys.username)
-        userDefaults.setObject(credentials.password, forKey: Keys.password)
+    func setCredentials(_ credentials: Credentials) {
+        userDefaults.set(credentials.username, forKey: Keys.username)
+        userDefaults.set(credentials.password, forKey: Keys.password)
     }
     
     func credentials() -> Credentials? {
-        let username = userDefaults.objectForKey(Keys.username) as? String
-        let password = userDefaults.objectForKey(Keys.password) as? String
+        let username = userDefaults.object(forKey: Keys.username) as? String
+        let password = userDefaults.object(forKey: Keys.password) as? String
         
         if (username != nil && password != nil) {
             return Credentials(username: username!, password: password!)
@@ -39,33 +39,33 @@ class CredentialsStore: NSObject {
     }
     
     func clearCredentials() {
-        userDefaults.removeObjectForKey(Keys.username)
-        userDefaults.removeObjectForKey(Keys.password)
+        userDefaults.removeObject(forKey: Keys.username)
+        userDefaults.removeObject(forKey: Keys.password)
     }
     
     func clearToken() {
-        userDefaults.removeObjectForKey(Keys.accessToken)
+        userDefaults.removeObject(forKey: Keys.accessToken)
         
     }
     
-    func setSaveCredentials(saveCredentials saveCredentials: Bool) {
-        userDefaults.setBool(saveCredentials, forKey: Keys.saveCredentials)
+    func setSaveCredentials(_ saveCredentials: Bool) {
+        userDefaults.set(saveCredentials, forKey: Keys.saveCredentials)
         if !saveCredentials {
             self.clearCredentials()
         }
     }
     
     func saveCredentials() -> Bool {
-        return userDefaults.boolForKey(Keys.saveCredentials)
+        return userDefaults.bool(forKey: Keys.saveCredentials)
     }
     
-    func setAccessToken(accessToken: String) {
-        userDefaults.setObject(accessToken, forKey: Keys.accessToken)
+    func setAccessToken(_ accessToken: String) {
+        userDefaults.set(accessToken, forKey: Keys.accessToken)
         self.userToken = accessToken
     }
     
     func accessToken() -> String? {
-        return userDefaults.objectForKey(Keys.accessToken) as? String
+        return userDefaults.object(forKey: Keys.accessToken) as? String
     }
     
     //TODO: temporary approach (should introduce something similiar to RequestInterceptors used in Zmon-Android version

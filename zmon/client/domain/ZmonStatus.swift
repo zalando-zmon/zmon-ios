@@ -9,12 +9,13 @@
 import EVReflection
 
 class ZmonStatus: EVObject {
+    var alertsActive: Int = 0
     var workersActive: Int = 0
     var workersTotal: Int = 0
     
     var checkInvocations: Int = 0
     var queueSize: Int = 0
     
-    var queues: Set<ZmonQueue> = Set()
-    var workers: Set<ZmonWorker> = Set()
+    var queues = [ZmonQueue]()
+    var workers = [ZmonWorker]()
 }

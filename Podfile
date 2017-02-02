@@ -4,9 +4,9 @@
 use_frameworks!
 
 target 'zmon' do
-  pod 'XCGLogger', '~> 3.1'
-  pod "AlamofireJsonToObjects", '~> 1.3'
-  pod 'SVProgressHUD', '2.0-beta'
+  pod 'XCGLogger', '~> 4.0'
+  pod "AlamofireJsonToObjects", '~> 2.4'
+  pod 'SVProgressHUD', '~> 2.1.2'
   pod 'Google/CloudMessaging'
 end
 
@@ -17,4 +17,3 @@ end
 target 'zmonUITests' do
 
 end
-
